@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<templates xml:space="preserve">
+    <t t-name="ekodo_bankifai.BankifAIWidget" owl="1">
+        <div>
+            <div style="background: #243742;">
+                <h1 class="ps-4 py-3" style="color: #ffffff;">Bank Connection</h1>
+            </div>
+            <iframe id="ddm-iframe" style="display: none;" frameborder="0" src="https://aggregator-ui-6gzihy27ea-ew.a.run.app/" width="100%" height="500px" />
+            <!-- TODO: take url from ir.parameter -->
+        </div>
+    </t>
+</templates>

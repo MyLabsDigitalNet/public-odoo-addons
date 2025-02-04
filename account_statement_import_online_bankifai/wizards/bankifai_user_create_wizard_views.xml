@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_bankifai_user_create_wizard_form" model="ir.ui.view">
+        <field name="model">bankifai.user.create.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <p
+                    >There is not bankifai user configured for this journal. Select an existing user or enter the credentials to create a new one</p>
+                </div>
+                <group>
+                    <group string="Select existing user">
+                        <field name="bankifai_user_id"/>
+                        <button class="btn btn-secondary" colspan="2" name="link_existing_user" type="object" string="Select existing user" />
+                    </group>
+                    <group string="Create new user">
+                        <field name="name"/>
+                        <field name="clientId"/>
+                        <field name="clientSecret"/>
+                        <button class="btn btn-secondary" colspan="2" name="create_user" type="object" string="Create new user" />
+                    </group>
+                </group>
+                <footer></footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="bankifai_user_create_wizard_action" model="ir.actions.act_window">
+        <field name="name">BankifAI User Create</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bankifai.user.create.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>
