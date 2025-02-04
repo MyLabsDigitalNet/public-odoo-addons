@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <data noupdate="1">
+        <record id="config_statement_import_online_consent_expected_duration" model="ir.config_parameter">
+            <field name="key">account_statement_import_online.days_consent_expected_duration</field>
+            <field name="value">90</field>
+        </record>
+    </data>
+</odoo>
+ 

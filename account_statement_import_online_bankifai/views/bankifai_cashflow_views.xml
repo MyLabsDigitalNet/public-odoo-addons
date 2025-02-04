@@ -1,0 +1,123 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bankifai_cashflow_view_search" model="ir.ui.view">
+        <field name="name">bankifai.cashflow.view.search</field>
+        <field name="model">bankifai.cashflow</field>
+        <field name="arch" type="xml">
+            <search string="BankifAI Cashflow">
+                <field name="bankifai_account_id"/>
+                <filter string="Has Historical clashfow data" name="filter_has_historical" domain="[('has_historical', '=', True)]"/>
+                <filter string="Has Forecasted clashfow data" name="filter_has_forecast" domain="[('has_forecast', '=', True)]"/>
+                <filter string="Cashflow Date" name="filter_date" date="date"/>
+                <group expand="0" string="Group By">
+                    <filter string="Cashflow Date" name="groupby_date" domain="[]" context="{'group_by': 'date'}"/>
+                    <filter string="BankifAI Account" name="groupby_bankifai_account_id" domain="[]" context="{'group_by': 'bankifai_account_id'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="bankifai_cashflow_view_tree" model="ir.ui.view">
+        <field name="name">bankifai.cashflow.view.tree</field>
+        <field name="model">bankifai.cashflow</field>
+        <field name="arch" type="xml">
+            <tree string="BankifAI Cashflow">
+                <field name="has_historical" invisible="1"/>
+                <field name="has_forecast" invisible="1"/>
+                <field name="date" optional="show"/>
+                <field name="bankifai_account_id" optional="show"/>
+                <field name="cashflow_date" optional="hide"/>
+                <field name="cashflow_balance" optional="show"/>
+                <field name="cashflow_income" optional="show"/>
+                <field name="cashflow_expense" optional="show"/>
+                <field name="balance" optional="show"/>
+                <field name="balance_day_max" optional="show"/>
+                <field name="balance_day_min" optional="show"/>
+                <field name="balances_dayofweek_max" optional="show"/>
+                <field name="balances_dayofweek_min" optional="show"/>
+                <field name="expenses_day_max" optional="show"/>
+                <field name="expenses_day_min" optional="show"/>
+                <field name="expenses_dayofweek_max" optional="show"/>
+                <field name="expenses_dayofweek_min" optional="show"/>
+                <field name="incomes_day_max" optional="show"/>
+                <field name="incomes_day_min" optional="show"/>
+                <field name="incomes_dayofweek_max" optional="show"/>
+                <field name="incomes_dayofweek_min" optional="show"/>
+                <field name="pred05" optional="show"/>
+                <field name="pred95" optional="show"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="bankifai_cashflow_view_pivot" model="ir.ui.view">
+        <field name="name">bankifai.cashflow.view.pivot</field>
+        <field name="model">bankifai.cashflow</field>
+        <field name="arch" type="xml">
+            <pivot string="BankifAI Cashflow">
+                <field name="currency_id" invisible="1"/>
+                <field name="has_historical" invisible="1"/>
+                <field name="has_forecast" invisible="1"/>
+                <field name="bankifai_account_id" type="col"/>
+                <field name="date" interval="day" type="row" widget="date"/>
+                <field name="cashflow_balance" type="measure" widget="monetary"/>
+                <field name="cashflow_income" type="measure" widget="monetary"/>
+                <field name="cashflow_expense" type="measure" widget="monetary"/>
+                <field name="balance" type="measure" widget="monetary"/>
+                <!-- <field name="balance_day_max" type="measure" widget="monetary"/>
+                <field name="balance_day_min" type="measure" widget="monetary"/>
+                <field name="balances_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="balances_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="expenses_day_max" type="measure" widget="monetary"/>
+                <field name="expenses_day_min" type="measure" widget="monetary"/>
+                <field name="expenses_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="expenses_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="incomes_day_max" type="measure" widget="monetary"/>
+                <field name="incomes_day_min" type="measure" widget="monetary"/>
+                <field name="incomes_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="incomes_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="pred05" type="measure" widget="monetary"/>
+                <field name="pred95" type="measure" widget="monetary"/> -->
+            </pivot>
+        </field>
+    </record>
+
+    <record id="bankifai_cashflow_view_graph" model="ir.ui.view">
+        <field name="name">bankifai.cashflow.view.graph</field>
+        <field name="model">bankifai.cashflow</field>
+        <field name="arch" type="xml">
+            <graph string="BankifAI Cashflow" type="line">
+                <field name="currency_id" invisible="1"/>
+                <field name="has_historical" invisible="1"/>
+                <field name="has_forecast" invisible="1"/>
+                <!-- <field name="bankifai_account_id" /> -->
+                <field name="date" interval="day"/>
+                <field name="cashflow_balance" type="measure"/>
+                <!-- <field name="balance" type="measure"/> -->
+                <!-- <field name="cashflow_income" type="measure" widget="monetary"/> -->
+                <!-- <field name="cashflow_expense" type="measure" widget="monetary"/> -->
+                <!-- <field name="balance_day_max" type="measure" widget="monetary"/>
+                <field name="balance_day_min" type="measure" widget="monetary"/>
+                <field name="balances_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="balances_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="expenses_day_max" type="measure" widget="monetary"/>
+                <field name="expenses_day_min" type="measure" widget="monetary"/>
+                <field name="expenses_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="expenses_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="incomes_day_max" type="measure" widget="monetary"/>
+                <field name="incomes_day_min" type="measure" widget="monetary"/>
+                <field name="incomes_dayofweek_max" type="measure" widget="monetary"/>
+                <field name="incomes_dayofweek_min" type="measure" widget="monetary"/>
+                <field name="pred05" type="measure" widget="monetary"/>
+                <field name="pred95" type="measure" widget="monetary"/> -->
+            </graph>
+        </field>
+    </record>
+
+    <record id="bankifai_cashflow_action" model="ir.actions.act_window">
+        <field name="name">BankifAI Cashflow</field>
+        <field name="res_model">bankifai.cashflow</field>
+        <field name="view_mode">tree,graph,pivot</field>
+    </record>
+
+    <menuitem id="bankifai_cashflow_menu" name="BankifAI Cashflow" action="bankifai_cashflow_action" parent="account.account_banks_menu" sequence="55"/>
+</odoo>

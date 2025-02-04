@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="bankifai_online_bank_statement_provider_form_inherit">
+        <field name="name">bankifai.online.bank.statement.provider.form.inherit</field>
+        <field name="model">online.bank.statement.provider</field>
+        <field name="inherit_id" ref="account_statement_import_online.online_bank_statement_provider_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='main']" position="inside">
+                <group name="bankifai" string="BankifAI" invisible="service != 'bankifai'">
+                    <field name="bankifai_account_id" invisible="1"/>
+                    <field name="bankifai_connection_id" invisible="1"/>
+                    <field name="bankifai_user_id" readonly="bankifai_account_id"/>
+                    <field name="bankifai_connection_status_code"/>
+                    <button name="action_select_bankifai_bank" string="Select Bank" invisible="not bankifai_user_id or bankifai_connection_id" type="object" class="oe_highlight" colspan="2" />
+                    <button name="action_select_bankifai_bank" string="Update consent" context="{'update_consent': True}" inivislbe="not bankifai_user_id or not bankifai_connection_id" type="object" class="oe_highlight" colspan="2" />
+                    <button name="action_disconnect" string="Disconnect" inivislbe="not bankifai_user_id or not bankifai_connection_id" type="object" class="oe_highlight" colspan="2" />
+                </group>
+            </xpath>
+            <xpath expr="//field[@name='next_run']" position="after">
+                <field name="retrieve_days_before"/>
+            </xpath>
+        </field>
+    </record>
+</odoo>
