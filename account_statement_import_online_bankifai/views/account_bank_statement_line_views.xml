@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="account_bank_statement_line_tree" model="ir.ui.view">
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_statement_base.account_bank_statement_line_tree"/>
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='partner_bank_id']" position="after">
+                <field name="category_id" optional="hide"/>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_bank_statement_line_search" model="ir.ui.view">
+        <field name="model">account.bank.statement.line</field>
+        <field name="inherit_id" ref="account_statement_base.account_bank_statement_line_search"/>
+        <field name="arch" type="xml">
+            <xpath expr="//group[@name='groupby']" position="inside">
+                <filter name="category_id_groupby" string="Category" context="{'group_by': 'category_id'}" />
+            </xpath>
+        </field>
+    </record>
+
+    <record id="account_statement_base.account_bank_statement_line_action" model="ir.actions.act_window">
+        <field name="view_mode">tree,form,graph</field>
+    </record>
+</odoo>
