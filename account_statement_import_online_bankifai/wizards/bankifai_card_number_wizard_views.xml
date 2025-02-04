@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_bankifai_card_number_wizard_form" model="ir.ui.view">
+        <field name="model">bankifai.card.number.wizard</field>
+        <field name="arch" type="xml">
+            <form>
+                <div>
+                    <p
+                    >Please introduce a Card Number to match with the bank cards. The middle digits may be obfuscated like this: 4242********4242</p>
+                </div>
+                <group>
+                    <field name="card_number"/>
+                </group>
+                <footer>
+                    <button class="btn btn-secondary" colspan="2" name="confirm" type="object" string="Confirm" />
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="bankifai_card_number_wizard_action" model="ir.actions.act_window">
+        <field name="name">Introduce a Card Number</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">bankifai.card.number.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="target">new</field>
+    </record>
+</odoo>

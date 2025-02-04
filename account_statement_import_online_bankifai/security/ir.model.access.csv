@@ -1,0 +1,11 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_bankifai_user_manager,access.bankifai.user.manager,model_bankifai_user,account.group_account_manager,1,1,1,1
+access_bankifai_user_user,access.bankifai.user.user,model_bankifai_user,account.group_account_user,1,0,0,0
+access_bankifai_connection_user,access.bankifai.connection.user,model_bankifai_connection,account.group_account_user,1,0,0,0
+access_bankifai_connection_manager,access.bankifai.connection.manager,model_bankifai_connection,account.group_account_manager,1,1,1,1
+access_bankifai_connection_existing_wizard_user,access.bankifai.existing.wizard.user,model_bankifai_connection_existing_wizard,account.group_account_user,1,1,1,1
+access_bankifai_user_create_wizard_user,access.bankifai.user.create.wizard.user,model_bankifai_user_create_wizard,account.group_account_user,1,1,1,1
+access_bankifai_card_number_wizard_user,access.bankifai.card.number.wizard.user,model_bankifai_card_number_wizard,account.group_account_user,1,1,1,1
+access_bankifai_account_user,access.bankifai.account.user,model_bankifai_account,account.group_account_user,1,0,0,0
+access_bankifai_cashflow_user,access.bankifai.cashflow.user,model_bankifai_cashflow,account.group_account_user,1,0,0,0
+access_account_bank_statement_line_category_user,access.account.bank.statement.line.category.user,model_account_bank_statement_line_category,account.group_account_user,1,0,0,0

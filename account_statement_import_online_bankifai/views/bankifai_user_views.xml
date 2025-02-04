@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bankifai_user_view_tree" model="ir.ui.view">
+        <field name="name">bankifai.user.view.list</field>
+        <field name="model">bankifai.user</field>
+        <field name="arch" type="xml">
+            <list string="BankifAI User">
+                <field name="name"/>
+                <field name="clientId" optional="hide"/>
+                <field name="clientSecret" optional="hide"/>
+                <field name="access_token" optional="hide"/>
+                <field name="token_expiration" optional="show"/>
+                <field name="bankifai_connection_ids" widget="many2many_tags" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="bankifai_user_view_form" model="ir.ui.view">
+        <field name="name">bankifai.user.view.form</field>
+        <field name="model">bankifai.user</field>
+        <field name="arch" type="xml">
+            <form string="BankifAI User">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="access_settings" string="Access settings">
+                            <field name="clientId"/>
+                            <field name="clientSecret"/>
+                        </group>
+                        <group name="token" string="Access Token">
+                            <field name="access_token"/>
+                            <field name="token_expiration"/>
+                        </group>
+                    </group>
+                    <group name="connections" string="Connections">
+                        <field name="bankifai_connection_ids" nolabel="1" colspan="2" readonly="0"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="bankifai_user_action" model="ir.actions.act_window">
+        <field name="name">BankifAI User</field>
+        <field name="res_model">bankifai.user</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <menuitem id="bankifai_user_menu" name="BankifAI User" action="bankifai_user_action" parent="account.account_banks_menu" sequence="50"/>
+
+    <record id="model_bankifai_user_update_connections" model="ir.actions.server">
+        <field name="name">Update connections</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_user"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_user"/>
+        <field name="binding_view_types">form</field>
+        <!-- Added groups to limit custom action excel exportation to central groups and above only -->
+        <!-- <field name="groups_id" eval="[(4, ref('audidat_sales_team_security.group_sale_salesman_all_leads_readonly'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">record._update_connections()</field>
+    </record>
+</odoo>

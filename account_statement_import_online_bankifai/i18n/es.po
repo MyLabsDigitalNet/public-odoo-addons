@@ -1,0 +1,1139 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_statement_import_online_bankifai
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-07 13:37+0000\n"
+"PO-Revision-Date: 2025-01-07 18:43+0100\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"Language: es\n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"X-Generator: Poedit 3.5\n"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "%(number)s %(type)s"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid ""
+"<br/>\n"
+"                    <span class=\"pe-2\">Consent expiring date:</span>"
+msgstr ""
+"<br/>\n"
+"                <span class=\"pe-2\">Fecha de expiración del consentimiento:"
+"</span>"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_connection_existing_wizard_form
+msgid ""
+"<i class=\"fa fa-info-circle\"/>\n"
+" There's already another journal from the same bank institution linked with "
+"BankifAI. Do you want to reuse the existing connection or create new one?"
+msgstr ""
+"<i class=\"fa fa-info-circle\"/>\n"
+" Ya existe otro diario de la misma institución bancaria vinculado con "
+"BankifAI. ¿Desea reutilizar la conexión existente o crear una nueva?"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid ""
+"<span class=\"alert-danger\" invisible=\"not "
+"show_bankifai_update_consent_error_in_dashboard\">Synchronization is stopped. "
+"Please, renew the bank consent.</span>"
+msgstr ""
+"<span class=\"alert-danger\" invisible=\"not "
+"show_bankifai_update_consent_error_in_dashboard\">La sincronización ha sido "
+"detenida. Por favor, renueve el consentimiento bancario.</span>"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__access_token
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
+msgid "Access Token"
+msgstr "Token de Acceso"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
+msgid "Access settings"
+msgstr "Acceso a Ajustes"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_company_name
+msgid "Account Company Name"
+msgstr "Nombre de la Empresa de la Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_currency
+msgid "Account Currency"
+msgstr "Moneda de la Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_name
+msgid "Account Name"
+msgstr "Nombre de la Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_number
+msgid "Account Number"
+msgstr "Número de Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_subtype
+msgid "Account Subtype"
+msgstr "Subtipo de la Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_type
+msgid "Account Type"
+msgstr "Tipo de Cuenta"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
+msgid "Accounts"
+msgstr "Cuentas"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_needaction
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_needaction
+msgid "Action Needed"
+msgstr "Acción Necesaria"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__bankifai_account_ids
+msgid "Aggregated Accounts"
+msgstr "Cuentas Agregadas"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
+msgid "Are you sure you want to delete the connection?"
+msgstr "¿Está seguro de que desea eliminar la conexión?"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_attachment_count
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_attachment_count
+msgid "Attachment Count"
+msgstr "Contador de Adjuntos"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_available_balance
+msgid "Available Balance"
+msgstr "Saldo Disponible"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__available_bankifai_connection_ids
+msgid "Availble BankifAI Connections"
+msgstr "Conexiones BankifAI Disponibles"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
+#, python-format
+msgid "Bank Connection"
+msgstr "Conexión Bancaria"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_account_bank_statement_line
+msgid "Bank Statement Line"
+msgstr "Línea de extracto bancario"
+
+#. module: account_statement_import_online_bankifai
+#: model:mail.activity.type,name:account_statement_import_online_bankifai.bank_sync_activity_update_consent
+msgid "Bank Synchronization: Update consent"
+msgstr "Sincronización Bancaria: Actualizar Consentimiento"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
+#, python-format
+msgid "Bank Synchronization: Update your consent"
+msgstr "Sincronización Bancaria: Actualizar Consentimiento"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_account_setup_bank_manual_config
+msgid "Bank setup manual config"
+msgstr "Configuración manual del banco"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__callback_url
+msgid "Callback URL"
+msgstr "URL de Callback"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_annual_interest
+msgid "Card Annual Interest"
+msgstr "Interés Anual de la Tarjeta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_disposed_balance
+msgid "Card Disposed Balance"
+msgstr "Saldo de Tarjeta Desechada"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_limit_balance
+msgid "Card Limit Balance"
+msgstr "Saldo Límite de la Tarjeta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_linked_account
+msgid "Card Linked Account"
+msgstr "Cuenta Asociada a la Tarjeta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_next_payment_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_status
+msgid "Card Next Payment Date"
+msgstr "Próximo Pago de la Tarjeta"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_tae
+msgid "Card TAE"
+msgstr "Tarjeta TAE"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_date
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Cashflow Date"
+msgstr "Fecha de flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid "Cashflow forecast"
+msgstr "Predicción de Flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid "Cashflow historical"
+msgstr "Histórico de Flujo de Caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line__category_id
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_bank_statement_line_search
+msgid "Category"
+msgstr "Categoría"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Cerrar"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__clientId
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__clientId
+msgid "Client ID"
+msgstr "ID de Cliente"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__clientSecret
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__clientSecret
+msgid "Client Secret"
+msgstr "Secreto del Cliente"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Close"
+msgstr "Cerrar"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__code
+msgid "Code"
+msgstr "Código"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__color
+msgid "Color"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__company_name
+msgid "Company"
+msgstr "Empresa"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
+msgid "Connection Data"
+msgstr "Datos de la Conexión"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__connection_identification
+msgid "Connection ID"
+msgstr "ID de la Conexión"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
+msgid "Connections"
+msgstr "Conexiones"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__expected_expiring_synchronization_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__expected_expiring_synchronization_date
+msgid "Consent Expire Date"
+msgstr "Fecha de Expiración del Consentimiento"
+
+#. module: account_statement_import_online_bankifai
+#: model:mail.message.subtype,name:account_statement_import_online_bankifai.bank_sync_consent_renewal
+msgid "Consent Renewal"
+msgstr "Renovación del Consentimiento"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
+#, python-format
+msgid "Create a Bank Account"
+msgstr "Crear Cuenta Bancaria"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_user_create_wizard_form
+msgid "Create new user"
+msgstr "Crear usuario nuevo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__create_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__create_uid
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__create_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__create_date
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__currency_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__currency_id
+msgid "Currency"
+msgstr "Moneda"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_current_balance
+msgid "Current Balance"
+msgstr "Saldo Actual"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__date
+msgid "Date"
+msgstr "Fecha"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_account_journal__expected_expiring_synchronization_date
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__expected_expiring_synchronization_date
+msgid "Date when the consent for this connection expires"
+msgstr "Fecha en la que expira el consentimiento para está conexión"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_connection__interval_type__days
+msgid "Day(s)"
+msgstr "Día(s)"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
+msgid "Delete"
+msgstr "Eliminar"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
+msgid "Disconnect"
+msgstr "Desconectar"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__display_name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__display_name
+msgid "Display Name"
+msgstr "Nombre a Mostrar"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__entity_code
+msgid "Entity Code"
+msgstr "Código de la Entidad"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__entity_name
+msgid "Entity Name"
+msgstr "Nombre de la Entidad"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Error"
+msgstr "Error"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Error de conexión"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_follower_ids
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_follower_ids
+msgid "Followers"
+msgstr "Seguidores"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_partner_ids
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_partner_ids
+msgid "Followers (Partners)"
+msgstr "Seguidores (Contactos)"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balance
+msgid "Forecasted Balance"
+msgstr "Saldo Actual"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__pred05
+msgid "Forecasted Balance Interval 5%"
+msgstr "Predicción del saldo Intervalo 5%"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__pred95
+msgid "Forecasted Balance Interval 95%"
+msgstr "Predicción del saldo Intervalo 95%"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balance_day_max
+msgid "Forecasted Day Max Balance"
+msgstr "Predicción del saldo máximo del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__expenses_day_max
+msgid "Forecasted Day Max Expenses"
+msgstr "Predicción gastos máximos del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__incomes_day_max
+msgid "Forecasted Day Max Incomes"
+msgstr "Predicción ingresos máximo del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balance_day_min
+msgid "Forecasted Day Min Balance"
+msgstr "Predicción del saldo mínimo del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__expenses_day_min
+msgid "Forecasted Day Min Expenses"
+msgstr "Predicción gastos mínimos del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__incomes_day_min
+msgid "Forecasted Day Min Incomes"
+msgstr "Predicción ingresos mínimos del día"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balances_dayofweek_max
+msgid "Forecasted Day of Week Max Balance"
+msgstr "Predicción del saldo máximo del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__expenses_dayofweek_max
+msgid "Forecasted Day of Week Max Expenses"
+msgstr "Predicción gastos máximos del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__incomes_dayofweek_max
+msgid "Forecasted Day of Week Max Incomes"
+msgstr "Predicción ingresos máximo del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balances_dayofweek_min
+msgid "Forecasted Day of Week Min Balance"
+msgstr "Predicción del saldo mínimo del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__expenses_dayofweek_min
+msgid "Forecasted Day of Week Min Expenses"
+msgstr "Predicción gastos mínimos del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__incomes_dayofweek_min
+msgid "Forecasted Day of Week Min Incomes"
+msgstr "Predicción ingresos mínimos del día de la semana"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Has Forecasted clashfow data"
+msgstr "Contiene datos de predicción de flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Has Historical clashfow data"
+msgstr "Contiene datos históricos del flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__has_message
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__has_message
+msgid "Has Message"
+msgstr "Tiene Mensaje"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__has_forecast
+msgid "Has forecasted data"
+msgstr "Contiene datos de predicción de flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__has_historical
+msgid "Has historial data"
+msgstr "Contiene datos históricos del flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_balance
+msgid "Historical Cashflow Balance"
+msgstr "Histórico del saldo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_expense
+msgid "Historical Cashflow Expense"
+msgstr "Histórico de gastos"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_income
+msgid "Historical Cashflow Income"
+msgstr "Histórico de ingresos"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_connection__interval_type__hours
+msgid "Hour(s)"
+msgstr "Hora(s)"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_needaction
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_needaction
+msgid "If checked, new messages require your attention."
+msgstr "Si está marcado, los nuevos mensajes requieren su atención."
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_has_error
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_has_error
+msgid "If checked, some messages have a delivery error."
+msgstr "Si está marcado, algunos mensajes tienen un error de entrega."
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "Inactive"
+msgstr "Inactivo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__interval_type
+msgid "Interval Type"
+msgstr "Tipo de Intervalo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_is_follower
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_is_follower
+msgid "Is Follower"
+msgstr "Es Seguidor"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__is_active
+msgid "Is active"
+msgstr "Está Activo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_account_journal
+msgid "Journal"
+msgstr "Diario"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_error
+msgid "Last Error"
+msgstr "Último Error"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_refresh_date
+msgid "Last Refresh Date"
+msgstr "Fecha de Última Actualización"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_refresh_datetime
+msgid "Last Refresh Datetime"
+msgstr "Fecha y Hora de Última Actualización"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_session_identification
+msgid "Last Session ID"
+msgstr "ID de la Última Sesión"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__token_date
+msgid "Last Update Token Date"
+msgstr "Fecha del Último Token de Actualización"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__token_datetime
+msgid "Last Update Token Datetime"
+msgstr "Fecha y Hora del Último Token de Actualización"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__write_uid
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__write_uid
+msgid "Last Updated by"
+msgstr "Última Actualización por"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__write_date
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__write_date
+msgid "Last Updated on"
+msgstr "Última Actualización el"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_successful_run
+msgid "Last successful refresh"
+msgstr "Última Actualización Exitosa"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Límite de conexiones alcanzado"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_has_error
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_has_error
+msgid "Message Delivery error"
+msgstr "Entrega de Mensaje Fallida"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_ids
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_ids
+msgid "Messages"
+msgstr "Mensajes"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_connection__interval_type__minutes
+msgid "Minute(s)"
+msgstr "Minuto(s)"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__name
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__name
+msgid "Name"
+msgstr "Nombre"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_connection_existing_wizard_form
+msgid "New link"
+msgstr "Nuevo Enlace"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__next_run
+msgid "Next scheduled refresh"
+msgstr "Próxima actualización programada"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_needaction_counter
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_needaction_counter
+msgid "Number of Actions"
+msgstr "Número de acciones"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_has_error_counter
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_has_error_counter
+msgid "Number of errors"
+msgstr "Número de Errores"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_needaction_counter
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_needaction_counter
+msgid "Number of messages requiring action"
+msgstr "Número de mensajes que requieren atención"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_has_error_counter
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_has_error_counter
+msgid "Number of messages with delivery error"
+msgstr "Número de mensajes con error de entrega"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_online_bank_statement_provider
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__online_bank_statement_provider_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__online_bank_statement_provider_id
+msgid "Online Bank Statement Provider"
+msgstr "Proveedor de Extractos Bancarios en Línea"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__online_bank_statement_provider_ids
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__online_bank_statement_provider_ids
+msgid "Online Bank Statement Providers"
+msgstr "Proveedores de Extractos Bancarios en Línea"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
+msgid "Open"
+msgstr "Abrir"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__operation_identification
+msgid "Operation ID"
+msgstr "ID de la Operación"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__parent_id
+msgid "Parent Category"
+msgstr "Categoría Padre"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#, python-format
+msgid "Please fill all the fields."
+msgstr "Por favor, rellene todos los campos."
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#, python-format
+msgid "Please select an existing user."
+msgstr "Por favor, seleccione un usuario existente."
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
+msgid "BankifAI"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_account
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__bankifai_account_id
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "BankifAI Account"
+msgstr "Cuenta BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_indentification
+msgid "BankifAI Account ID"
+msgstr "ID de Cuenta BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_provider_identification
+msgid "BankifAI Account Provider ID"
+msgstr "ID del Proveedor de Cuenta BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_account_view_tree
+msgid "BankifAI Accounts"
+msgstr "Cuentas BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_cashflow_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_cashflow
+#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_cashflow_menu
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_graph
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_pivot
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_tree
+msgid "BankifAI Cashflow"
+msgstr "Flujo de caja BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_cashflow_ids
+msgid "BankifAI Cashflows"
+msgstr "Flujos de Caja BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_connection
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_connection_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__bankifai_connection_id
+msgid "BankifAI Connection"
+msgstr "Conexión BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_existing_wizard_action
+msgid "BankifAI Connection Existing"
+msgstr "Conexión BankifAI Existente"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__bankifai_connection_ids
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
+msgid "BankifAI Connections"
+msgstr "Conexiones BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_account_id
+msgid "BankifAI Current Account"
+msgstr "Cuenta BankifAI Actual"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__bankifai_indentification
+msgid "BankifAI ID"
+msgstr "ID BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_callback_url
+msgid "BankifAI Redirect URL"
+msgstr "URL de Redirección BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid "BankifAI Synchronization"
+msgstr "Sincronización BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_user
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_user_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__bankifai_user_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__bankifai_user_id
+#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_user_menu
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_tree
+msgid "BankifAI User"
+msgstr "Usuario BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_create_wizard_action
+msgid "BankifAI User Create"
+msgstr "Usuario BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.ir_cron_account_refresh_bankifai_connections_ir_actions_server
+msgid "Refresh BankifAI Connections"
+msgstr "Actualizar Conexiones BankifAI"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_refresh
+msgid "Refresh connection"
+msgstr "Refrescar Conexión"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update
+msgid "Update connection"
+msgstr "Actualizar Conexión"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "Refreshing bankifai connections: %(connection_names)s"
+msgstr "Actualizar Conexiones BankifAI: %(connection_names)s"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_connection_existing_wizard_form
+msgid "Reuse existing"
+msgstr "Reutilizar Existente"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
+msgid "Scheduled Refresh"
+msgstr "Actualizaciones Programadas"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "Scheduled refresh of online bank connections complete."
+msgstr ""
+"Se completó la actualización programada de las conexiones bancarias en línea."
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "Scheduled refresh of online bank connections..."
+msgstr "Actualización programada de las conexiones bancarias en línea..."
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__interval_number
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__interval_number
+msgid "Scheduled update interval"
+msgstr "Intervalo de actualización programado"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.constraint,message:account_statement_import_online_bankifai.constraint_bankifai_connection_valid_interval_number
+msgid "Scheduled update interval must be greater than zero!"
+msgstr "¡El intervalo de actualización programada debe de ser mayor que cero!"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
+msgid "Select Bank"
+msgstr "Seleccionar Banco"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_user_create_wizard_form
+msgid "Select existing user"
+msgstr "Reutilizar Usuario Existente"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_button_in_dashboard
+msgid "Show BankifAI Button In Dashboard"
+msgstr "Mostrar Botón BankifAI en el Tablero"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_update_consent_error_in_dashboard
+msgid "Show BankifAI Update Consent Error In Dashboard"
+msgstr ""
+"Mostrar Error de Actualización del Consentimiento BankifAI en el Tablero"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_update_consent_in_dashboard
+msgid "Show BankifAI Update Consent In Dashboard"
+msgstr "Mostrar Actualización del Consentimiento BankifAI en el Tablero"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_connection_existing_wizard_form
+msgid ""
+"Some banks only allow one connection, while others work better with separate "
+"ones, so it's a matter of trying. Choose the connection you want to resue."
+msgstr ""
+"Algunos bancos solo permiten una conexión, mientras que otros funcionan "
+"mejor con conexiones separadas, asi que es cuestión de probar. Elija la "
+"conexión que desea reutilizar."
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_status_code
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__status_code
+msgid "Status Code"
+msgstr "Código de Estado"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Success Connection"
+msgstr "Conexión realizada con éxito"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__team
+msgid "Team ID"
+msgstr "ID del Equipo"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "The bank has been connected"
+msgstr "El banco se a conectado correctamente"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#, python-format
+msgid ""
+"The user %s has the same clientId. Please link this user or change the "
+"clientId."
+msgstr ""
+"El usuario %s tiene el mismo ID de Cliente. Por favor, asocie este usuario o "
+"cambie el ID de Cliente."
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.view_bankifai_user_create_wizard_form
+msgid ""
+"There is not bankifai user configured for this journal. Select an existing "
+"user or enter the credentials to create a new one"
+msgstr ""
+"No hay un usuario de BankifAI configurado para este diario. Selecciona un "
+"usuario existente en la base de datos o introduzca las credenciales para "
+"crear uno nuevo"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.constraint,message:account_statement_import_online_bankifai.constraint_bankifai_cashflow_cashflow_date_uniq
+msgid "There must be only one cashflow per day per acount!"
+msgstr "Solo puede haber un flujo de caja por día y por cuenta!"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
+#, python-format
+msgid ""
+"This bank connection is expected to expire on %s. Press the Update "
+"Credentials button a few days before to renew your consent."
+msgstr ""
+"La conexión bancaria expira el %s. Presione el botón Actualizar "
+"Consentimiento unos días antes para actualizar el consentimiento."
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__token
+msgid "Token"
+msgstr "Token"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__token_expiration
+msgid "Token Expiration"
+msgstr "Expiración del Token"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update_cashflow_forecasts
+msgid "Update Cashflow Forecasts"
+msgstr "Actualizar predicción de flujo de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_account_update_cashflow_historical
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update_cashflow_historical
+msgid "Update Cashflows"
+msgstr "Actualizar flujos de caja"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__update_schedule
+msgid "Update Schedule"
+msgstr "Programación de Actualizaciones"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update_accounts
+msgid "Update accounts"
+msgstr "Actualizar Cuentas"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_user_update_connections
+msgid "Update connections"
+msgstr "Actualizar Conexiones"
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
+msgid "Update consent"
+msgstr "Actualizar Consentimiento"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__website_message_ids
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__website_message_ids
+msgid "Website Messages"
+msgstr "Mensajes de la Página Web"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__website_message_ids
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__website_message_ids
+msgid "Website communication history"
+msgstr "Historial de Comunicación de la Página Web"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_connection__interval_type__weeks
+msgid "Week(s)"
+msgstr "Semana(s)"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_connection_existing_wizard
+msgid "Wizard for reusing existing BankifAI connection"
+msgstr "Asistente para la Reutilización de Conexiones BankifAI Existentes"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_user_create_wizard
+msgid "Wizard for reusing existing BankifAI user or create new one"
+msgstr ""
+"Asistente para la Reutilización de Conexiones BankifAI Existentes o creación "
+"de una nueva"
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
+#, python-format
+msgid "Your account number %(iban_number)s has been successfully disconnected."
+msgstr "El número de cuenta %(iban_number)s  ha sido desconectado."
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid "Your account number %(iban_number)s is successfully attached."
+msgstr "El número de cuenta %(iban_number)s  ha sido asociado correctamente."
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid ""
+"Your account number %(iban_number)s it's not in the IBAN account numbers "
+"found %(accounts_iban)s, please check"
+msgstr ""
+"No se ha encontrado el número de cuenta %(iban_number)s entre los "
+"disponibles %(accounts_iban)s, por favor, compruebe que es correcto"
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_account_bank_statement_line_category
+msgid "account.bank.statement.line.category"
+msgstr ""
+
+#~ msgid "Last Modified on"
+#~ msgstr "Última Modificación en"
+
+#~ msgid "Main Attachment"
+#~ msgstr "Adjunto Principal"
+
+#~ msgid "SMS Delivery error"
+#~ msgstr "Error de Entrega de SMS"

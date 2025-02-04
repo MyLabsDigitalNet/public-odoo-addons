@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bankifai_account_view_tree" model="ir.ui.view">
+        <field name="name">bankifai.account.view.list</field>
+        <field name="model">bankifai.account</field>
+        <field name="arch" type="xml">
+            <list string="BankifAI Accounts">
+                <field name="name" optional="hide"/>
+                <field name="account_type" optional="show"/>
+                <field name="account_subtype" optional="show"/>
+                <field name="account_indentification" optional="hide"/>
+                <field name="account_provider_identification" optional="hide"/>
+                <field name="account_number" optional="show"/>
+                <field name="account_name" optional="show"/>
+                <field name="account_company_name" optional="hide"/>
+                <field name="account_currency" optional="show"/>
+                <field name="account_available_balance" optional="show"/>
+                <field name="account_current_balance" optional="show"/>
+                <field name="card_limit_balance" optional="show"/>
+                <field name="card_disposed_balance" optional="show"/>
+                <field name="card_linked_account" optional="show"/>
+                <field name="card_next_payment_date" optional="show"/>
+                <field name="card_status" optional="show"/>
+                <field name="card_annual_interest" optional="show"/>
+                <field name="card_tae" optional="show"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="model_bankifai_account_update_cashflow_historical" model="ir.actions.server">
+        <field name="name">Update Cashflows</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_account"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_account"/>
+        <field name="binding_view_types">form</field>
+        <!-- Added groups to limit custom action excel exportation to central groups and above only -->
+        <!-- <field name="groups_id" eval="[(4, ref('audidat_sales_team_security.group_sale_salesman_all_leads_readonly'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">record._update_cashflow_historical()</field>
+    </record>
+    <!-- 
+    <record id="bankifai_user_action" model="ir.actions.act_window">
+        <field name="name">BankifAI User</field>
+        <field name="res_model">bankifai.user</field>
+        <field name="view_mode">list</field>
+    </record>
+
+    <menuitem id="bankifai_user_menu" name="BankifAI User" action="bankifai_user_action" parent="account.account_banks_menu" sequence="50"/> -->
+</odoo>

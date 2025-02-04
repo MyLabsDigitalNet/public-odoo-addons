@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="bankifai_connection_view_tree" model="ir.ui.view">
+        <field name="name">bankifai.connection.view.list</field>
+        <field name="model">bankifai.connection</field>
+        <field name="arch" type="xml">
+            <list string="BankifAI Connections" create="false" delete="false">
+                <field name="name"/>
+                <field name="company_name" optional="hide"/>
+                <field name="callback_url" optional="hide"/>
+                <field name="connection_identification" optional="hide"/>
+                <field name="team" optional="hide"/>
+                <field name="operation_identification" optional="hide"/>
+                <field name="last_session_identification" optional="hide"/>
+                <field name="last_refresh_datetime" optional="show"/>
+                <field name="token_datetime" optional="show"/>
+                <field name="entity_code" optional="hide"/>
+                <field name="entity_name" optional="show"/>
+                <field name="status_code" optional="show"/>
+                <field name="last_error_code" optional="hide"/>
+                <field name="last_error_message" optional="hide"/>
+                <field name="token" optional="hide"/>
+                <field name="update_schedule" optional="show"/>
+                <field name="next_run" optional="show"/>
+                <field name="last_successful_run" optional="show"/>
+                <field name="bankifai_account_ids" optional="show" widget="many2many_tags"/>
+                <button name="action_open_record" type="object" icon="fa-external-link" title="Open"/>
+                <button name="action_delete_connection" type="object" icon="fa-trash" title="Delete" confirm="Are you sure you want to delete the connection?"/>
+            </list>
+        </field>
+    </record>
+
+    <record id="bankifai_connection_view_form" model="ir.ui.view">
+        <field name="name">bankifai.connection.view.form</field>
+        <field name="model">bankifai.connection</field>
+        <field name="arch" type="xml">
+            <form string="BankifAI Connections">
+                <sheet>
+                    <div class="oe_title">
+                        <label for="name"/>
+                        <h1>
+                            <field name="name"/>
+                        </h1>
+                    </div>
+                    <group>
+                        <group name="refresh" string="Scheduled Refresh">
+                            <label for="interval_number" />
+                            <div class="o_row" id="interval_number">
+                                <field name="interval_number" class="ml8" />
+                                <field name="interval_type" />
+                            </div>
+                            <field name="next_run" />
+                            <field name="last_successful_run" />
+                        </group>
+                    </group>
+                    <group name="data" string="Connection Data">
+                        <group name="data_left">
+                            <field name="company_name"/>
+                            <field name="callback_url"/>
+                            <field name="entity_name"/>
+                            <field name="entity_code"/>
+                            <field name="last_refresh_datetime"/>
+                            <field name="status_code"/>
+                        </group>
+                        <group name="data_rigth">
+                            <field name="connection_identification"/>
+                            <field name="team"/>
+                            <field name="operation_identification"/>
+                            <field name="last_session_identification"/>
+                            <field name="token"/>
+                        </group>
+                    </group>
+                    <group name="accounts" string="Accounts">
+                        <field name="bankifai_account_ids" nolabel="1" colspan="2"/>
+                    </group>
+                </sheet>
+                <chatter/>
+            </form>
+        </field>
+    </record>
+
+    <record id="bankifai_connection_action" model="ir.actions.act_window">
+        <field name="name">BankifAI Connection</field>
+        <field name="res_model">bankifai.connection</field>
+        <field name="view_mode">list,form</field>
+    </record>
+
+    <!-- <menuitem id="bankifai_user_menu" name="BankifAI User" action="bankifai_user_action" parent="account.account_banks_menu" sequence="50"/> -->
+    <record id="model_bankifai_connection_update_accounts" model="ir.actions.server">
+        <field name="name">Update accounts</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_view_types">form</field>
+        <!-- Added groups to limit custom action excel exportation to central groups and above only -->
+        <!-- <field name="groups_id" eval="[(4, ref('audidat_sales_team_security.group_sale_salesman_all_leads_readonly'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">record._update_accounts()</field>
+    </record>
+
+    <record id="model_bankifai_connection_update" model="ir.actions.server">
+        <field name="name">Update connection</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_view_types">form</field>
+        <!-- Added groups to limit custom action excel exportation to central groups and above only -->
+        <!-- <field name="groups_id" eval="[(4, ref('audidat_sales_team_security.group_sale_salesman_all_leads_readonly'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">record._update_connection()</field>
+    </record>
+
+    <record id="model_bankifai_connection_refresh" model="ir.actions.server">
+        <field name="name">Refresh connection</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_view_types">form</field>
+        <!-- Added groups to limit custom action excel exportation to central groups and above only -->
+        <!-- <field name="groups_id" eval="[(4, ref('audidat_sales_team_security.group_sale_salesman_all_leads_readonly'))]"/> -->
+        <field name="state">code</field>
+        <field name="code">record._refresh_connection()</field>
+    </record>
+
+    <record id="model_bankifai_connection_update_cashflow_historical" model="ir.actions.server">
+        <field name="name">Update Cashflows</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">record._update_cashflow_historical()</field>
+    </record>
+
+    <record id="model_bankifai_connection_update_cashflow_forecasts" model="ir.actions.server">
+        <field name="name">Update Cashflow Forecasts</field>
+        <field name="model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_model_id" ref="account_statement_import_online_bankifai.model_bankifai_connection"/>
+        <field name="binding_view_types">form</field>
+        <field name="state">code</field>
+        <field name="code">record._update_cashflow_forecasts()</field>
+    </record>
+</odoo>

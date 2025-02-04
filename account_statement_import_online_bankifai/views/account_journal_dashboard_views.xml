@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="account_journal_dashboard_kanban_view_inherit" model="ir.ui.view">
+        <field name="name">account.journal.dashboard.kanban</field>
+        <field name="model">account.journal</field>
+        <field name="inherit_id" ref="account.account_journal_dashboard_kanban_view"/>
+        <field name="arch" type="xml">
+            <xpath expr="//div[@id='dashboard_bank_cash_left']//button[@name='action_configure_bank_journal']" position="attributes">
+                <attribute name="invisible">show_bankifai_button_in_dashboard</attribute>
+            </xpath>
+            <xpath expr="//div[@name='bank_cash_buttons']" position="after">
+                <field name="show_bankifai_button_in_dashboard" invisible="1"/>
+                <field name="show_bankifai_update_consent_in_dashboard" invisible="1"/>
+                <field name="show_bankifai_update_consent_error_in_dashboard" invisible="1"/>
+                <button class="btn btn-primary" invisible="not show_bankifai_button_in_dashboard" type="object" name="action_select_bankifai_bank" string="BankifAI Synchronization"/>
+                <div invisible="not show_bankifai_update_consent_in_dashboard">
+                    <button type="object" context="{'update_consent': True}" name="action_select_bankifai_bank" string="Update consent"/>
+                    <br/>
+                    <span class="pe-2">Consent expiring date:</span>
+                    <field name="expected_expiring_synchronization_date"/>
+                </div>
+                <span class="alert-danger" role="alert" invisible="not show_bankifai_update_consent_error_in_dashboard">Synchronization is stopped. Please, renew the bank consent.</span>
+            </xpath>
+            <xpath expr="//t[@t-name='menu']//div[@id='bank_and_cash_container']//div[./h5[@id='card_action_view_menus']]" position="inside">
+                <div t-if="show_bankifai_update_consent_in_dashboard">
+                    <a role="menuitem" type="object" name="open_cashflow_historical">Cashflow historical</a>
+                    <a role="menuitem" type="object" name="open_cashflow_forecast">Cashflow forecast</a>
+                </div>
+            </xpath>
+        </field>
+    </record>
+</odoo>
