@@ -126,7 +126,7 @@ class BankifAIAccount(models.Model):
             return bool(new) and int(old) != int(new)
 
         def _is_string_updated(old, new):
-            return bool(new) and (old or '').lower() != new.lower()
+            return bool(new) and (old or '').lower() != str(new).lower()
 
         def _is_array_updated(old, new):
             return bool(new) and set(old) != set(new)
