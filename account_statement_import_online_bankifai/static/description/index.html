@@ -1,0 +1,82 @@
+<h1 id="online-bank-statements-bankifai">Online Bank Statements:
+    BankifAI</h1>
+<p><a href="http://www.gnu.org/licenses/agpl-3.0-standalone.html"><img
+            src="https://img.shields.io/badge/licence-AGPL--3-blue.png" alt="License: AGPL-3" /></a> <a
+        href="https://github.com/MyLabsDigitalNet/public-odoo-addons/tree/15.0/account_statement_import_online_bankifai"><img
+            src="https://img.shields.io/badge/github-MyLabsDigitalNet%2Fpublic--odoo--addons-lightgray.png?logo=github"
+            alt="MyLabsDigitalNet/public-odoo-addons" /></a></p>
+<p>This module provides online bank statements from <a href="https://qsimov.ekodo.es/">BankifAI</a>.</p>
+<p><strong>Table of contents</strong></p>
+<div class="contents" data-local="">
+
+</div>
+<h2 id="configuration">Configuration</h2>
+<p>To configure online bank statements provider:</p>
+<ol>
+    <li>We recommend to install the module <code>account_usability</code> to
+        enable the accounting Dashboard.</li>
+    <li>Go to <em>Invoicing/Accounting</em></li>
+    <li>Click the button <em>BankifAI Synchronization</em> in a bank/card
+        jorunal.</li>
+    <li>Follow the instructions to conencto your bank account.</li>
+</ol>
+<p>or, to configure it manually:</p>
+<ol>
+    <li>Go to <em>Invoicing &gt; Configuration &gt; Bank Accounts</em></li>
+    <li>Open bank account to configure and edit it</li>
+    <li>Set <em>Bank Feeds</em> to <em>Online</em></li>
+    <li>Select <em>Bankifai</em> as online bank statements provider in
+        <em>Online Bank Statements (OCA)</em> section
+    </li>
+    <li>Save the bank account</li>
+    <li>Click on provider and configure provider-specific settings.</li>
+</ol>
+<p>or, alternatively:</p>
+<ol>
+    <li>Go to <em>Invoicing &gt; Overview</em></li>
+    <li>Open settings of the corresponding journal account</li>
+    <li>Switch to <em>Bank Account</em> tab</li>
+    <li>Set <em>Bank Feeds</em> to <em>Online</em></li>
+    <li>Select <em>Bankifai</em> as online bank statements provider in
+        <em>Online Bank Statements (OCA)</em> section
+    </li>
+    <li>Save the bank account</li>
+    <li>Click on provider and configure provider-specific settings.</li>
+</ol>
+<p>To obtain <em>Client ID</em> and <em>Client Secret</em>:</p>
+<ol>
+    <li>Open <a href="https://qsimov.ekodo.es/">BankifAI</a> ang click
+        <em>Buy Now</em>.
+    </li>
+</ol>
+<p>Check also <code>account_bank_statement_import_online</code>
+    configuration instructions for more information.</p>
+<h2 id="usage">Usage</h2>
+<p>To pull historical bank statements:</p>
+<ol>
+    <li>Go to <em>Invoicing &gt; Configuration &gt; Bank Accounts</em></li>
+    <li>Select specific bank accounts</li>
+    <li>Launch <em>Actions &gt; Online Bank Statements Pull Wizard</em></li>
+    <li>Configure date interval and click <em>Pull</em></li>
+</ol>
+<p>If historical data is not needed, then just simply wait for the
+    scheduled activity "Pull Online Bank Statements" to be executed for
+    getting new transactions.</p>
+<h2 id="bug-tracker">Bug Tracker</h2>
+<p>Bugs are tracked on <a href="https://github.com/MyLabsDigitalNet/public-odoo-addons/issues">GitHub
+        Issues</a>. In case of trouble, please check there if your issue has
+    already been reported. If you spotted it first, help us to smash it by
+    providing a detailed and welcomed <a
+        href="https://github.com/MyLabsDigitalNet/public-odoo-addons/issues/new?body=module:%20account_statement_import_online_bankifai%0Aversion:%2015.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.
+</p>
+<p>Do not contact contributors directly about support or help with
+    technical issues.</p>
+<h2 id="credits">Credits</h2>
+<h3 id="authors">Authors</h3>
+<ul>
+    <li><a href="https://mylabs.es/">MyLabs Digital Net (EKODO)</a>:
+        <ul>
+            <li>Adrián Bernal</li>
+        </ul>
+    </li>
+</ul>
