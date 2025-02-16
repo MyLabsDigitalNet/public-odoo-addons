@@ -26,9 +26,9 @@ or, alternatively:
 #. Save the bank account
 #. Click on provider and configure provider-specific settings.
 
-To obtain *Login* and *Key*:
+To obtain *Client Id* and *Client Secret*:
 
-#. Open `BankifAI <https://qsimov.ekodo.es//>`_ ang click *Buy Now*.
+#. Open `BankifAI <https://qsimov.ekodo.es//>`_ and click *Buy Now*.
 
 Check also ``account_bank_statement_import_online`` configuration instructions
 for more information.
