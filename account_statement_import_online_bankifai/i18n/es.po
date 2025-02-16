@@ -986,7 +986,7 @@ msgstr "ID del Equipo"
 #: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "The bank has been connected"
-msgstr "El banco se a conectado correctamente"
+msgstr "El banco se ha conectado correctamente"
 
 #. module: account_statement_import_online_bankifai
 #. odoo-python
