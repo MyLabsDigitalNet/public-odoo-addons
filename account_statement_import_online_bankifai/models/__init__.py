@@ -6,3 +6,4 @@ from . import bankifai_cashflow
 from . import account_journal
 from . import account_bank_statement_line_category
 from . import account_bank_statement_line
+from . import account_bank_statement
