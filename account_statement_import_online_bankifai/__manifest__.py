@@ -25,6 +25,7 @@
         "wizards/bankifai_user_create_wizard_views.xml",
         "wizards/bankifai_card_number_wizard_views.xml",
         "data/bankifai_account.xml",
+        "data/account_bank_statement.xml",
         "data/config_parameter.xml",
         "data/mail_activity_type_data.xml",
     ],
@@ -36,5 +37,5 @@
     "images": [
         "static/description/icon.png",
         "static/description/main_screenshot.png",
-],
+    ],
 }
