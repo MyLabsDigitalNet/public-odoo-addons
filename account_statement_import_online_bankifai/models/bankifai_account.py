@@ -17,7 +17,8 @@ class BankifAIAccount(models.Model):
     account_type = fields.Char(string="Account Type")
     account_subtype = fields.Char(string="Account Subtype")
     account_indentification = fields.Integer(string="BankifAI Account ID")
-    account_provider_identification = fields.Char(string="BankifAI Account Provider ID")
+    account_provider_identification = fields.Char(
+        string="BankifAI Account Provider ID")
     account_number = fields.Char(string="Account Number")
     account_name = fields.Char(string="Account Name")
     account_company_name = fields.Char(string="Account Company Name")
@@ -26,16 +27,21 @@ class BankifAIAccount(models.Model):
     account_current_balance = fields.Monetary(string="Current Balance")
     card_limit_balance = fields.Monetary(string="Card Limit Balance")
     card_disposed_balance = fields.Monetary(string="Card Disposed Balance")
-    card_linked_account = fields.Char(string="Card Linked Account")  # TODO: compute account id
-    card_next_payment_date = fields.Char(string="Card Next Payment Date")  # TODO: compute date
+    card_linked_account = fields.Char(
+        string="Card Linked Account")  # TODO: compute account id
+    card_next_payment_date = fields.Char(
+        string="Card Next Payment Date")  # TODO: compute date
     card_status = fields.Char(string="Card Status")
     card_annual_interest = fields.Float(string="Card Annual Interest")
     card_tae = fields.Float(string="Card TAE")
-    bankifai_connection_id = fields.Many2one(comodel_name='bankifai.connection', string="BankifAI Connection", ondelete='cascade')
-    
-    bankifai_cashflow_ids = fields.One2many(comodel_name='bankifai.cashflow', inverse_name='bankifai_account_id', string='BankifAI Cashflows')
+    bankifai_connection_id = fields.Many2one(
+        comodel_name='bankifai.connection', string="BankifAI Connection", ondelete='cascade')
 
-    currency_id = fields.Many2one(comodel_name='res.currency', compute='_compute_res_currency', store=True)
+    bankifai_cashflow_ids = fields.One2many(
+        comodel_name='bankifai.cashflow', inverse_name='bankifai_account_id', string='BankifAI Cashflows')
+
+    currency_id = fields.Many2one(
+        comodel_name='res.currency', compute='_compute_res_currency', store=True)
 
     @api.depends('account_name', 'account_number')
     def _compute_name(self):
@@ -73,12 +79,14 @@ class BankifAIAccount(models.Model):
 
         if str2bool(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.sort_transactions", 'True')):
             transactions = self._sort_transactions(transactions)
-        
+
         return transactions
 
     @api.model
     def _sort_transactions(self, transactions):
         if len(transactions) < 2:
+            return transactions
+        if not all(tr.get('txBalance') and tr.get('txAmount') for tr in transactions):
             return transactions
         transactions_by_balance = defaultdict(list)
         first_transacction = False
@@ -111,9 +119,12 @@ class BankifAIAccount(models.Model):
             if self.account_type == 'ACCOUNT':
                 match_number |= self.account_number.upper() == number.upper()
             elif self.account_type == 'CARD':
-                left_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.left_card_numbers_check", 4))
-                rigth_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.rigth_card_numbers_check", 4))
-                match_number |= self.account_number.upper()[:left_card_numbers_check] == number.upper()[:left_card_numbers_check] and self.account_number.upper()[-rigth_card_numbers_check:] == number.upper()[-rigth_card_numbers_check:]
+                left_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param(
+                    "account_statement_import_online_bankifai.left_card_numbers_check", 4))
+                rigth_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param(
+                    "account_statement_import_online_bankifai.rigth_card_numbers_check", 4))
+                match_number |= self.account_number.upper()[:left_card_numbers_check] == number.upper(
+                )[:left_card_numbers_check] and self.account_number.upper()[-rigth_card_numbers_check:] == number.upper()[-rigth_card_numbers_check:]
         return match_number
 
     def _get_account_data(self, account_data, data={}):
@@ -165,10 +176,11 @@ class BankifAIAccount(models.Model):
                 data[key] = transformation(new_data)
 
         return data
-    
+
     def _request_cashflow_historical(self):
         cashflows_by_account = {}
-        accounts_by_bankifai_user = defaultdict(lambda: self.env['bankifai.account'])
+        accounts_by_bankifai_user = defaultdict(
+            lambda: self.env['bankifai.account'])
         for account in self:
             accounts_by_bankifai_user[account.bankifai_connection_id.bankifai_user_id] |= account
         for bankifai_user_id, bankifai_account_ids in accounts_by_bankifai_user.items():
@@ -180,10 +192,11 @@ class BankifAIAccount(models.Model):
             )
             cashflows_by_account.update(data)
         return cashflows_by_account
-    
+
     def _request_cashflow_forecasts(self):
         cashflows_by_account = {}
-        accounts_by_bankifai_user = defaultdict(lambda: self.env['bankifai.account'])
+        accounts_by_bankifai_user = defaultdict(
+            lambda: self.env['bankifai.account'])
         for account in self:
             accounts_by_bankifai_user[account.bankifai_connection_id.bankifai_user_id] |= account
         for bankifai_user_id, bankifai_account_ids in accounts_by_bankifai_user.items():
@@ -200,15 +213,19 @@ class BankifAIAccount(models.Model):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_historical()
         for account in self:
-            bankifai_cashflows_by_date = { bankifai_cashflow_id.date.strftime(DF): bankifai_cashflow_id for bankifai_cashflow_id in self.bankifai_cashflow_ids }
+            bankifai_cashflows_by_date = {bankifai_cashflow_id.date.strftime(
+                DF): bankifai_cashflow_id for bankifai_cashflow_id in account.bankifai_cashflow_ids}
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
                 cashflow_data['has_historical'] = True
                 cashflow_date = cashflow_data.get('cashflow_date')
-                cashflow_data['record'] = bankifai_cashflows_by_date.get(cashflow_date, self.env['bankifai.cashflow'])
+                cashflow_data['record'] = bankifai_cashflows_by_date.get(
+                    cashflow_date, self.env['bankifai.cashflow'])
                 if cashflow_data['record']:
-                    cashflow_data['record'].sudo().write(self.env['bankifai.cashflow']._get_cashflow_data(cashflow_data))
+                    cashflow_data['record'].sudo().write(
+                        self.env['bankifai.cashflow']._get_cashflow_data(cashflow_data))
                 else:
-                    cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_data(cashflow_data, {'bankifai_account_id': account.id}))
+                    cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_data(
+                        cashflow_data, {'bankifai_account_id': account.id}))
 
         self.env['bankifai.cashflow'].sudo().create(cashflows_to_create)
 
@@ -216,14 +233,18 @@ class BankifAIAccount(models.Model):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_forecasts()
         for account in self:
-            bankifai_cashflows_by_date = { bankifai_cashflow_id.date.strftime(DF): bankifai_cashflow_id for bankifai_cashflow_id in self.bankifai_cashflow_ids }
+            bankifai_cashflows_by_date = {bankifai_cashflow_id.date.strftime(
+                DF): bankifai_cashflow_id for bankifai_cashflow_id in account.bankifai_cashflow_ids}
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
                 cashflow_data['has_forecast'] = True
                 cashflow_date = cashflow_data.get('date')
-                cashflow_data['record'] = bankifai_cashflows_by_date.get(cashflow_date, self.env['bankifai.cashflow'])
+                cashflow_data['record'] = bankifai_cashflows_by_date.get(
+                    cashflow_date, self.env['bankifai.cashflow'])
                 if cashflow_data['record']:
-                    cashflow_data['record'].sudo().write(self.env['bankifai.cashflow']._get_cashflow_forecast_data(cashflow_data))
+                    cashflow_data['record'].sudo().write(
+                        self.env['bankifai.cashflow']._get_cashflow_forecast_data(cashflow_data))
                 else:
-                    cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_forecast_data(cashflow_data, {'bankifai_account_id': account.id}))
+                    cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_forecast_data(
+                        cashflow_data, {'bankifai_account_id': account.id}))
 
         self.env['bankifai.cashflow'].sudo().create(cashflows_to_create)
