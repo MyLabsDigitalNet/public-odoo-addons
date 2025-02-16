@@ -21,7 +21,8 @@ class BankifAIAccount(models.Model):
         ),
     ]
 
-    bankifai_account_id = fields.Many2one(comodel_name='bankifai.account', string='BankifAI Account', ondelete='cascade')
+    bankifai_account_id = fields.Many2one(
+        comodel_name='bankifai.account', string='BankifAI Account', ondelete='cascade')
     date = fields.Date(string='Date', compute='_compute_date', store=True)
     cashflow_date = fields.Char(string='Cashflow Date')
 
@@ -34,16 +35,22 @@ class BankifAIAccount(models.Model):
     balance = fields.Monetary(string='Forecasted Balance')
     balance_day_max = fields.Monetary(string='Forecasted Day Max Balance')
     balance_day_min = fields.Monetary(string='Forecasted Day Min Balance')
-    balances_dayofweek_max = fields.Monetary(string='Forecasted Day of Week Max Balance')
-    balances_dayofweek_min = fields.Monetary(string='Forecasted Day of Week Min Balance')
+    balances_dayofweek_max = fields.Monetary(
+        string='Forecasted Day of Week Max Balance')
+    balances_dayofweek_min = fields.Monetary(
+        string='Forecasted Day of Week Min Balance')
     expenses_day_max = fields.Monetary(string='Forecasted Day Max Expenses')
     expenses_day_min = fields.Monetary(string='Forecasted Day Min Expenses')
-    expenses_dayofweek_max = fields.Monetary(string='Forecasted Day of Week Max Expenses')
-    expenses_dayofweek_min = fields.Monetary(string='Forecasted Day of Week Min Expenses')
+    expenses_dayofweek_max = fields.Monetary(
+        string='Forecasted Day of Week Max Expenses')
+    expenses_dayofweek_min = fields.Monetary(
+        string='Forecasted Day of Week Min Expenses')
     incomes_day_max = fields.Monetary(string='Forecasted Day Max Incomes')
     incomes_day_min = fields.Monetary(string='Forecasted Day Min Incomes')
-    incomes_dayofweek_max = fields.Monetary(string='Forecasted Day of Week Max Incomes')
-    incomes_dayofweek_min = fields.Monetary(string='Forecasted Day of Week Min Incomes')
+    incomes_dayofweek_max = fields.Monetary(
+        string='Forecasted Day of Week Max Incomes')
+    incomes_dayofweek_min = fields.Monetary(
+        string='Forecasted Day of Week Min Incomes')
     pred05 = fields.Monetary(string='Forecasted Balance Interval 5%')
     pred95 = fields.Monetary(string='Forecasted Balance Interval 95%')
 
@@ -54,16 +61,15 @@ class BankifAIAccount(models.Model):
         for cashflow in self:
             cashflow.date = fields.Datetime.to_datetime(cashflow.cashflow_date)
 
-    
     def _get_cashflow_data(self, cashflow_data, custom_data={}):
         def _is_string_updated(old, new):
             return bool(new) and (old or '').lower() != new.lower()
-        
+
         def _is_float_updated(old, new):
             if new is None:
                 return False
             return float_compare(float(old), float(new), precision_digits=2)
-        
+
         def _is_boolean_updated(old, new):
             if new is None:
                 return False
@@ -80,7 +86,8 @@ class BankifAIAccount(models.Model):
 
         data = {}
         for key, function in cashflow_data_map.items():
-            should_be_updated, new_data, transformation = function(cashflow_data)
+            should_be_updated, new_data, transformation = function(
+                cashflow_data)
             # use sudo to avoid rules check because we are only reading and the checks have been done before
             if should_be_updated(cashflow_data['record'][key], new_data):
                 data[key] = transformation(new_data)
@@ -91,12 +98,12 @@ class BankifAIAccount(models.Model):
     def _get_cashflow_forecast_data(self, cashflow_data, data={}):
         def _is_string_updated(old, new):
             return bool(new) and (old or '').lower() != new.lower()
-        
+
         def _is_float_updated(old, new):
             if new is None:
                 return False
             return float_compare(float(old), float(new), precision_digits=2)
-        
+
         def _is_boolean_updated(old, new):
             if new is None:
                 return False
@@ -124,9 +131,13 @@ class BankifAIAccount(models.Model):
         }
 
         for key, function in cashflow_data_map.items():
-            should_be_updated, new_data, transformation = function(cashflow_data)
+            should_be_updated, new_data, transformation = function(
+                cashflow_data)
             # use sudo to avoid rules check because we are only reading and the checks have been done before
             if should_be_updated(cashflow_data['record'][key], new_data):
                 data[key] = transformation(new_data)
 
         return data
+
+    def _get_cashflow_by_date(self):
+        return {bankifai_cashflow_id.date.strftime(DF): bankifai_cashflow_id for bankifai_cashflow_id in self}
