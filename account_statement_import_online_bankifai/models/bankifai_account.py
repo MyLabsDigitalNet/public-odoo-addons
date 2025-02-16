@@ -212,9 +212,10 @@ class BankifAIAccount(models.Model):
     def _update_cashflow_historical(self):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_historical()
+        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account()
         for account in self:
-            bankifai_cashflows_by_date = {bankifai_cashflow_id.date.strftime(
-                DF): bankifai_cashflow_id for bankifai_cashflow_id in account.bankifai_cashflow_ids}
+            bankifai_cashflows_by_date = bankifai_cashflows_by_date_and_account.get(
+                account.id, {})
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
                 cashflow_data['has_historical'] = True
                 cashflow_date = cashflow_data.get('cashflow_date')
@@ -232,9 +233,10 @@ class BankifAIAccount(models.Model):
     def _update_cashflow_forecasts(self):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_forecasts()
+        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account()
         for account in self:
-            bankifai_cashflows_by_date = {bankifai_cashflow_id.date.strftime(
-                DF): bankifai_cashflow_id for bankifai_cashflow_id in account.bankifai_cashflow_ids}
+            bankifai_cashflows_by_date = bankifai_cashflows_by_date_and_account.get(
+                account.id, {})
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
                 cashflow_data['has_forecast'] = True
                 cashflow_date = cashflow_data.get('date')
@@ -248,3 +250,6 @@ class BankifAIAccount(models.Model):
                         cashflow_data, {'bankifai_account_id': account.id}))
 
         self.env['bankifai.cashflow'].sudo().create(cashflows_to_create)
+
+    def _get_cashflow_by_date_and_account(self):
+        return {account.id: account.bankifai_cashflow_ids._get_cashflow_by_date() for account in self}
