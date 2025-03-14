@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 17.0\n"
+"Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-01-07 13:37+0000\n"
-"PO-Revision-Date: 2025-01-07 13:37+0000\n"
+"POT-Creation-Date: 2025-03-14 06:23+0000\n"
+"PO-Revision-Date: 2025-03-14 06:23+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,7 +18,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "%(number)s %(type)s"
 msgstr ""
@@ -40,7 +39,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
 msgid ""
-"<span class=\"alert-danger\" attrs=\"{'invisible': "
+"<span class=\"alert-danger\" role=\"alert\" attrs=\"{'invisible': "
 "[('show_bankifai_update_consent_error_in_dashboard', '=', "
 "False)]}\">Synchronization is stopped. Please, renew the bank "
 "consent.</span>"
@@ -125,11 +124,20 @@ msgid "Availble BankifAI Connections"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balance
+msgid "Balance"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
 #, python-format
 msgid "Bank Connection"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_account_bank_statement
+msgid "Bank Statement"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -145,7 +153,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid "Bank Synchronization: Update your consent"
 msgstr ""
@@ -153,6 +160,112 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model:ir.model,name:account_statement_import_online_bankifai.model_account_setup_bank_manual_config
 msgid "Bank setup manual config"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
+msgid "BankifAI"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_account
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__bankifai_account_id
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "BankifAI Account"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_indentification
+msgid "BankifAI Account ID"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_provider_identification
+msgid "BankifAI Account Provider ID"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_account_view_tree
+msgid "BankifAI Accounts"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_cashflow_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_cashflow
+#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_cashflow_menu
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_graph
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_pivot
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_tree
+msgid "BankifAI Cashflow"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_cashflow_ids
+msgid "BankifAI Cashflows"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_connection
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_connection_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__bankifai_connection_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_id
+msgid "BankifAI Connection"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_existing_wizard_action
+msgid "BankifAI Connection Existing"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__bankifai_connection_ids
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
+msgid "BankifAI Connections"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_account_id
+msgid "BankifAI Current Account"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__bankifai_indentification
+msgid "BankifAI ID"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_callback_url
+msgid "BankifAI Redirect URL"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid "BankifAI Synchronization"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_action
+#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_user
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__bankifai_user_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__bankifai_user_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_user_id
+#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_user_menu
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_tree
+msgid "BankifAI User"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_create_wizard_action
+msgid "BankifAI User Create"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
+msgid "Bankifai Cashflow"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -182,8 +295,12 @@ msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_next_payment_date
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_status
 msgid "Card Next Payment Date"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__card_status
+msgid "Card Status"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -198,29 +315,14 @@ msgid "Cashflow Date"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
-msgid "Cashflow forecast"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
-msgid "Cashflow historical"
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Cashflow Type"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line__category_id
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_bank_statement_line_search
 msgid "Category"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#. odoo-javascript
-#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#, python-format
-msgid "Cerrar"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -238,7 +340,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Close"
 msgstr ""
@@ -287,7 +388,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid "Create a Bank Account"
 msgstr ""
@@ -347,6 +447,11 @@ msgid "Day(s)"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__retrieve_days_before
+msgid "Days before date since"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
 msgid "Delete"
 msgstr ""
@@ -380,7 +485,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Error"
 msgstr ""
@@ -388,9 +492,8 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
-msgid "Error de conexión"
+msgid "Connection error"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -406,8 +509,8 @@ msgid "Followers (Partners)"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__balance
-msgid "Forecasted Balance"
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_cashflow__cashflow_type__forecast
+msgid "Forecast"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -482,17 +585,12 @@ msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Forecasted clashfow data"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
 msgid "Group By"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
-msgid "Has Forecasted clashfow data"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
-msgid "Has Historical clashfow data"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -512,6 +610,11 @@ msgid "Has historial data"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_cashflow__cashflow_type__historical
+msgid "Historical"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_balance
 msgid "Historical Cashflow Balance"
 msgstr ""
@@ -527,8 +630,20 @@ msgid "Historical Cashflow Income"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
+msgid "Historical clashfow data"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_connection__interval_type__hours
 msgid "Hour(s)"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_online_bank_statement_provider__retrieve_days_before
+msgid ""
+"How many days before date since should be retrieved to process transactions "
+"with diferent booking and value date."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -550,14 +665,15 @@ msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_has_error
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_connection__message_has_sms_error
 #: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_has_error
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_bankifai_user__message_has_sms_error
 msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Inactive"
 msgstr ""
@@ -584,8 +700,24 @@ msgid "Journal"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_error
-msgid "Last Error"
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_error_code
+msgid "Last Error Code"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_error_message
+msgid "Last Error Message"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user____last_update
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard____last_update
+msgid "Last Modified on"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -644,10 +776,14 @@ msgstr ""
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
-msgid "Límite de conexiones alcanzado"
+msgid "Connection limit reached"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_main_attachment_id
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_main_attachment_id
+msgid "Main Attachment"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -741,7 +877,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid "Please fill all the fields."
 msgstr ""
@@ -749,114 +884,13 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid "Please select an existing user."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_online_bank_statement_provider_form_inherit
-msgid "BankifAI"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_account
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__bankifai_account_id
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
-msgid "BankifAI Account"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_indentification
-msgid "BankifAI Account ID"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__account_provider_identification
-msgid "BankifAI Account Provider ID"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_account_view_tree
-msgid "BankifAI Accounts"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_cashflow_action
-#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_cashflow
-#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_cashflow_menu
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_graph
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_pivot
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_tree
-msgid "BankifAI Cashflow"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_cashflow_ids
-msgid "BankifAI Cashflows"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_action
-#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_connection
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_id
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account__bankifai_connection_id
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard__bankifai_connection_id
-msgid "BankifAI Connection"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_connection_existing_wizard_action
-msgid "BankifAI Connection Existing"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__bankifai_connection_ids
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_tree
-msgid "BankifAI Connections"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_account_id
-msgid "BankifAI Current Account"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category__bankifai_indentification
-msgid "BankifAI ID"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_callback_url
-msgid "BankifAI Redirect URL"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
-msgid "BankifAI Synchronization"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_action
-#: model:ir.model,name:account_statement_import_online_bankifai.model_bankifai_user
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_user_id
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__bankifai_user_id
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard__bankifai_user_id
-#: model:ir.ui.menu,name:account_statement_import_online_bankifai.bankifai_user_menu
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
-#: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_tree
-msgid "BankifAI User"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.actions.act_window,name:account_statement_import_online_bankifai.bankifai_user_create_wizard_action
-msgid "BankifAI User Create"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
 #: model:ir.actions.server,name:account_statement_import_online_bankifai.ir_cron_account_refresh_bankifai_connections_ir_actions_server
+#: model:ir.cron,cron_name:account_statement_import_online_bankifai.ir_cron_account_refresh_bankifai_connections
 msgid "Refresh BankifAI Connections"
 msgstr ""
 
@@ -866,14 +900,8 @@ msgid "Refresh connection"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update
-msgid "Update connection"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Refreshing bankifai connections: %(connection_names)s"
 msgstr ""
@@ -884,6 +912,12 @@ msgid "Reuse existing"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_has_sms_error
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_has_sms_error
+msgid "SMS Delivery error"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_connection_view_form
 msgid "Scheduled Refresh"
 msgstr ""
@@ -891,7 +925,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Scheduled refresh of online bank connections complete."
 msgstr ""
@@ -899,14 +932,13 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Scheduled refresh of online bank connections..."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__interval_number
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__interval_number
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__interval_number
 msgid "Scheduled update interval"
 msgstr ""
 
@@ -927,17 +959,17 @@ msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_button_in_dashboard
-msgid "Show BankifAI Button In Dashboard"
+msgid "Show Bankifai Button In Dashboard"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_update_consent_error_in_dashboard
-msgid "Show BankifAI Update Consent Error In Dashboard"
+msgid "Show Bankifai Update Consent Error In Dashboard"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_journal__show_bankifai_update_consent_in_dashboard
-msgid "Show BankifAI Update Consent In Dashboard"
+msgid "Show Bankifai Update Consent In Dashboard"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -948,15 +980,14 @@ msgid ""
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_status_code
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__status_code
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__bankifai_connection_status_code
 msgid "Status Code"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Success Connection"
 msgstr ""
@@ -969,7 +1000,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "The bank has been connected"
 msgstr ""
@@ -977,7 +1007,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid ""
 "The user %s has the same clientId. Please link this user or change the "
@@ -999,7 +1028,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid ""
 "This bank connection is expected to expire on %s. Press the Update "
@@ -1014,6 +1042,11 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__token_expiration
 msgid "Token Expiration"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_type
+msgid "Type"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -1035,6 +1068,16 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update_accounts
 msgid "Update accounts"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.update_balance_start_with_cashflow_action
+msgid "Update balance start with clashflow"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.actions.server,name:account_statement_import_online_bankifai.model_bankifai_connection_update
+msgid "Update connection"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -1078,7 +1121,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
 #, python-format
 msgid ""
 "Your account number %(iban_number)s has been successfully disconnected."
@@ -1087,7 +1129,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Your account number %(iban_number)s is successfully attached."
 msgstr ""
@@ -1095,7 +1136,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
-#: code:addons/private-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid ""
 "Your account number %(iban_number)s it's not in the IBAN account numbers "

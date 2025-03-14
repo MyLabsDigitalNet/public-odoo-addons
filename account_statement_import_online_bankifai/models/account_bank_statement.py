@@ -9,12 +9,12 @@ class AccountBankStatementLine(models.Model):
     _inherit = "account.bank.statement"
 
     def _update_balance_start_with_cashflow(self):
-        bankifai_cashflows_by_date_and_account = self.journal_id.online_bank_statement_provider_id.bankifai_account_id._get_cashflow_by_date_and_account()
+        bankifai_cashflows_by_date_and_account = self.journal_id.online_bank_statement_provider_id.bankifai_account_id._get_cashflow_by_date_and_account(cashflow_type='historical')
         for statement in self:
             bankifai_account_id = statement.journal_id.online_bank_statement_provider_id.bankifai_account_id
             if statement.date and bankifai_account_id:
                 cashflow = bankifai_cashflows_by_date_and_account.get(
                     bankifai_account_id.id, {}).get((statement.date - relativedelta(days=1)).strftime(DF))
-                if cashflow and cashflow.has_historical:
+                if cashflow:
                     statement.balance_start = cashflow.cashflow_balance
         return True

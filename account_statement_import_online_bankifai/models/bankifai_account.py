@@ -212,12 +212,12 @@ class BankifAIAccount(models.Model):
     def _update_cashflow_historical(self):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_historical()
-        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account()
+        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account(
+            cashflow_type='historical')
         for account in self:
             bankifai_cashflows_by_date = bankifai_cashflows_by_date_and_account.get(
                 account.id, {})
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
-                cashflow_data['has_historical'] = True
                 cashflow_date = cashflow_data.get('cashflow_date')
                 cashflow_data['record'] = bankifai_cashflows_by_date.get(
                     cashflow_date, self.env['bankifai.cashflow'])
@@ -226,19 +226,19 @@ class BankifAIAccount(models.Model):
                         self.env['bankifai.cashflow']._get_cashflow_data(cashflow_data))
                 else:
                     cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_data(
-                        cashflow_data, {'bankifai_account_id': account.id}))
+                        cashflow_data, {'bankifai_account_id': account.id, 'cashflow_type': 'historical'}))
 
         self.env['bankifai.cashflow'].sudo().create(cashflows_to_create)
 
     def _update_cashflow_forecasts(self):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_forecasts()
-        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account()
+        bankifai_cashflows_by_date_and_account = self._get_forecast_by_date_and_account(
+            cashflow_type='forecast')
         for account in self:
             bankifai_cashflows_by_date = bankifai_cashflows_by_date_and_account.get(
                 account.id, {})
             for cashflow_data in cashflows_by_accounts.get(str(account.account_indentification), []):
-                cashflow_data['has_forecast'] = True
                 cashflow_date = cashflow_data.get('date')
                 cashflow_data['record'] = bankifai_cashflows_by_date.get(
                     cashflow_date, self.env['bankifai.cashflow'])
@@ -247,9 +247,9 @@ class BankifAIAccount(models.Model):
                         self.env['bankifai.cashflow']._get_cashflow_forecast_data(cashflow_data))
                 else:
                     cashflows_to_create.append(self.env['bankifai.cashflow']._get_cashflow_forecast_data(
-                        cashflow_data, {'bankifai_account_id': account.id}))
+                        cashflow_data, {'bankifai_account_id': account.id, 'cashflow_type': 'forecast'}))
 
         self.env['bankifai.cashflow'].sudo().create(cashflows_to_create)
 
-    def _get_cashflow_by_date_and_account(self):
-        return {account.id: account.bankifai_cashflow_ids._get_cashflow_by_date() for account in self}
+    def _get_cashflow_by_date_and_account(self, cashflow_type='historical'):
+        return {account.id: account.bankifai_cashflow_ids.filtered_domain([('cashflow_type', '=', cashflow_type)])._get_cashflow_by_date() for account in self}
