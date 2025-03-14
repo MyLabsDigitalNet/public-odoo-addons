@@ -100,9 +100,9 @@ class BankifAIWidget extends Component {
     _show_limit_exceeded_dialog() {
         this.dialogService.add(ConfirmationDialog,
             {
-                title: _t("Límite de conexiones alcanzado"),
-                body: _t("Límite de conexiones alcanzado"),
-                confirmLabel: _t("Cerrar"),
+                title: _t("Connection limit reached"),
+                body: _t("Connection limit reached"),
+                confirmLabel: _t("Close"),
             },
             {
                 onClose: () => {
@@ -115,9 +115,9 @@ class BankifAIWidget extends Component {
     _show_error_dialog() {
         this.dialogService.add(ConfirmationDialog,
             {
-                title: _t("Error de conexión"),
+                title: _t("Connection error"),
                 body: _t("Error"),
-                confirmLabel: _t("Cerrar"),
+                confirmLabel: _t("Close"),
             },
             {
                 onClose: () => {

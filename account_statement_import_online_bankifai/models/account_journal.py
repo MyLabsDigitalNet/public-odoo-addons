@@ -138,3 +138,14 @@ class AccountJournal(models.Model):
 
             journal.online_bank_statement_provider_id = provider
             _logger.info("Journal %s now linked to service %s", journal.name, service)
+    
+    def open_bankifai_cashflow(self):
+        self.ensure_one()
+        action = self.env['ir.actions.actions']._for_xml_id('account_statement_import_online_bankifai.bankifai_cashflow_action')
+        action.update({
+            'domain': [('bankifai_account_id', '=', self.online_bank_statement_provider_id.bankifai_account_id.id)],
+            'context': {
+                'default_bankifai_account_id': self.online_bank_statement_provider_id.bankifai_account_id.id,
+            },
+        })
+        return action

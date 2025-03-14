@@ -251,14 +251,14 @@ class OnlineBankStatementProvider(models.Model):
     ):
         if str2bool(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.use_cashflow_historical_balance", 'True')) and self.bankifai_account_id.account_type == 'ACCOUNT' and self.bankifai_connection_id.last_refresh_datetime.date() >= statement_date_since.date():
 
-            bankifai_cashflow_id = self.bankifai_account_id.bankifai_cashflow_ids.filtered_domain([('has_historical', '=', True), ('date', '=', statement_date_since.date() - relativedelta(days=1))])
+            bankifai_cashflow_id = self.bankifai_account_id.bankifai_cashflow_ids.filtered_domain([('cashflow_type', '=', 'historical'), ('date', '=', statement_date_since.date() - relativedelta(days=1))])
 
             if bankifai_cashflow_id:
                 if not data:
                     data = ([], {})
                 
                 unfiltered_lines, statement_values = data
-                statement_values['balance_start'] = bankifai_cashflow_id.cashflow_balance
+                statement_values['balance_start'] = bankifai_cashflow_id.balance
 
         return super(OnlineBankStatementProvider, self)._create_or_update_statement(data, statement_date_since, statement_date_until)
 

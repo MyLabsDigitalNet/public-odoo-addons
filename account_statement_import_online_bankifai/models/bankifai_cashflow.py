@@ -16,15 +16,22 @@ class BankifAIAccount(models.Model):
     _sql_constraints = [
         (
             "cashflow_date_uniq",
-            "unique(bankifai_account_id, cashflow_date)",
+            "unique(bankifai_account_id, cashflow_date, type)",
             "There must be only one cashflow per day per acount!",
         ),
     ]
 
+    cashflow_type = fields.Selection(
+        selection=[('historical', 'Historical'), ('forecast', 'Forecast')],
+        string='Type',
+        required=True,
+        default='historical',
+    )
     bankifai_account_id = fields.Many2one(
         comodel_name='bankifai.account', string='BankifAI Account', ondelete='cascade')
     date = fields.Date(string='Date', compute='_compute_date', store=True)
     cashflow_date = fields.Char(string='Cashflow Date')
+    balance = fields.Monetary(string='Balance')
 
     has_historical = fields.Boolean(string='Has historial data')
     cashflow_balance = fields.Monetary(string='Historical Cashflow Balance')
@@ -32,7 +39,6 @@ class BankifAIAccount(models.Model):
     cashflow_expense = fields.Monetary(string='Historical Cashflow Expense')
 
     has_forecast = fields.Boolean(string="Has forecasted data")
-    balance = fields.Monetary(string='Forecasted Balance')
     balance_day_max = fields.Monetary(string='Forecasted Day Max Balance')
     balance_day_min = fields.Monetary(string='Forecasted Day Min Balance')
     balances_dayofweek_max = fields.Monetary(
@@ -78,16 +84,14 @@ class BankifAIAccount(models.Model):
         # returned tupple format (should_be_updated function, new_data, data transformation function)
         cashflow_data_map = {
             'cashflow_date': lambda conn_data: (_is_string_updated, conn_data['cashflow_date'], lambda data: data),
-            'cashflow_balance': lambda conn_data: (_is_float_updated, conn_data['cashflow_balance'], lambda data: data),
+            'balance': lambda conn_data: (_is_float_updated, conn_data['cashflow_balance'], lambda data: data),
             'cashflow_income': lambda conn_data: (_is_float_updated, conn_data['cashflow_income'], lambda data: data),
             'cashflow_expense': lambda conn_data: (_is_float_updated, conn_data['cashflow_expense'], lambda data: data),
-            'has_historical': lambda conn_data: (_is_boolean_updated, conn_data['has_historical'], lambda data: data),
         }
 
         data = {}
         for key, function in cashflow_data_map.items():
-            should_be_updated, new_data, transformation = function(
-                cashflow_data)
+            should_be_updated, new_data, transformation = function(cashflow_data)
             # use sudo to avoid rules check because we are only reading and the checks have been done before
             if should_be_updated(cashflow_data['record'][key], new_data):
                 data[key] = transformation(new_data)
@@ -95,7 +99,7 @@ class BankifAIAccount(models.Model):
         data.update(custom_data)
         return data
 
-    def _get_cashflow_forecast_data(self, cashflow_data, data={}):
+    def _get_cashflow_forecast_data(self, cashflow_data, custom_data={}):
         def _is_string_updated(old, new):
             return bool(new) and (old or '').lower() != new.lower()
 
@@ -127,16 +131,16 @@ class BankifAIAccount(models.Model):
             'incomes_dayofweek_min': lambda conn_data: (_is_float_updated, conn_data['incomes_dayofweek_min'], lambda data: data),
             'pred05': lambda conn_data: (_is_float_updated, conn_data['pred05'], lambda data: data),
             'pred95': lambda conn_data: (_is_float_updated, conn_data['pred95'], lambda data: data),
-            'has_forecast': lambda conn_data: (_is_boolean_updated, conn_data['has_forecast'], lambda data: data),
         }
 
+        data = {}
         for key, function in cashflow_data_map.items():
-            should_be_updated, new_data, transformation = function(
-                cashflow_data)
+            should_be_updated, new_data, transformation = function(cashflow_data)
             # use sudo to avoid rules check because we are only reading and the checks have been done before
             if should_be_updated(cashflow_data['record'][key], new_data):
                 data[key] = transformation(new_data)
 
+        data.update(custom_data)
         return data
 
     def _get_cashflow_by_date(self):
