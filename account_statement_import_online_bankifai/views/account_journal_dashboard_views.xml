@@ -13,7 +13,6 @@
             </xpath>
             <xpath expr="//div[@name='bank_journal_cta']" position="inside">
                 <field name="show_bankifai_button_in_dashboard" invisible="1"/>
-                <field name="show_bankifai_update_consent_in_dashboard" invisible="1"/>
                 <field name="show_bankifai_update_consent_error_in_dashboard" invisible="1"/>
                 <button class="btn btn-primary" attrs="{'invisible': [('show_bankifai_button_in_dashboard', '=', False)]}" type="object" name="action_select_bankifai_bank" string="BankifAI Synchronization"/>
                 <div attrs="{'invisible': [('show_bankifai_update_consent_in_dashboard', '=', False)]}">
@@ -24,10 +23,11 @@
                 </div>
                 <span class="alert-danger" role="alert" attrs="{'invisible': [('show_bankifai_update_consent_error_in_dashboard', '=', False)]}">Synchronization is stopped. Please, renew the bank consent.</span>
             </xpath>
+            <!-- <xpath expr="//t[@t-name='JournalManage']//div[contains(@t-if,&quot;journal_type == 'bank' || journal_type == 'cash'&quot;)]//div[hasclass('o_kanban_manage_view')]" position="inside"> -->
             <xpath expr="//t[@t-name='JournalManage']//div[contains(@t-if,&quot;journal_type == 'bank' || journal_type == 'cash'&quot;)]//div[hasclass('o_kanban_manage_view')]" position="inside">
-                <div t-if="show_bankifai_update_consent_in_dashboard">
-                    <a role="menuitem" type="object" name="open_cashflow_historical">Cashflow historical</a>
-                    <a role="menuitem" type="object" name="open_cashflow_forecast">Cashflow forecast</a>
+                <field name="show_bankifai_update_consent_in_dashboard" invisible="1"/>
+                <div attrs="{'invisible': [('show_bankifai_update_consent_in_dashboard', '=', False)]}">
+                    <a role="menuitem" type="object" name="open_bankifai_cashflow">Bankifai Cashflow</a>
                 </div>
             </xpath>
         </field>
