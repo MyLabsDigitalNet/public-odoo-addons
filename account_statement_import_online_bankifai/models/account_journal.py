@@ -135,9 +135,9 @@ class AccountJournal(models.Model):
         self.ensure_one()
         action = self.env['ir.actions.actions']._for_xml_id('account_statement_import_online_bankifai.bankifai_cashflow_action')
         action.update({
-            'domain': [('bankifai_account_id', '=', self.online_bank_statement_provider_id.bankifai_account_id.id)],
             'context': {
                 'default_bankifai_account_id': self.online_bank_statement_provider_id.bankifai_account_id.id,
+                'search_default_bankifai_account_id': self.online_bank_statement_provider_id.bankifai_account_id.id,
             },
         })
         return action
