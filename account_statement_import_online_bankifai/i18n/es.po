@@ -624,7 +624,7 @@ msgstr "Contiene datos históricos del flujo de caja"
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__bankifai_cashflow__cashflow_type__historical
 msgid "Historical"
-msgstr "Contiene datos históricos del flujo de caja"
+msgstr "Histórico del saldo"
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow__cashflow_balance
