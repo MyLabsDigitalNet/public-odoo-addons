@@ -24,7 +24,7 @@ class AccountJournal(models.Model):
                 if journal.online_bank_statement_provider == 'bankifai' and journal.bank_statements_source == 'online':
                     if journal.bank_account_id and journal.online_bank_statement_provider_id.bankifai_connection_id and journal.online_bank_statement_provider_id.bankifai_user_id:
                         show_update_consent = True
-                        if journal.online_bank_statement_provider_id.bankifai_connection_id.status_code == 'TOKEN_EXPIRED':
+                        if journal.online_bank_statement_provider_id.bankifai_connection_id.status_code == 'EXPIRED_TOKEN':
                             show_update_consent_error = True
                     else:
                         show_button = True

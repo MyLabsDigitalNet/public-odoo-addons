@@ -366,7 +366,7 @@ class BankifAIConnection(models.Model):
             for connection in self:
                 if connection.status_code == 'PENDING' and values['status_code'] == 'OK':
                     update_function_dict['_finish_connection'] |= connection
-                elif connection.status_code == 'TOKEN_EXPIRED' and values['status_code'] in ['OK', 'UPDATING']:
+                elif connection.status_code == 'EXPIRED_TOKEN' and values['status_code'] in ['OK', 'UPDATING']:
                     update_function_dict['_update_expected_expiring_synchronization_date'] |= connection
                 elif connection.status_code == 'UPDATING' and values['status_code'] == 'OK':
                     update_function_dict['_finish_connection'] |= connection
@@ -374,7 +374,7 @@ class BankifAIConnection(models.Model):
                     update_function_dict['_update_cashflow_forecasts'] |= connection
                 elif values['status_code'] == 'ERROR':
                     pass  # try again
-                elif values['status_code'] == 'TOKEN_EXPIRED':
+                elif values['status_code'] == 'EXPIRED_TOKEN':
                     pass  # reauthorize
         super(BankifAIConnection, self).write(values)
 
