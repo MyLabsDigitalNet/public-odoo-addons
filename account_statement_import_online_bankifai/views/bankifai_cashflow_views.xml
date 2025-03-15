@@ -113,7 +113,7 @@
     <record id="bankifai_cashflow_action" model="ir.actions.act_window">
         <field name="name">BankifAI Cashflow</field>
         <field name="res_model">bankifai.cashflow</field>
-        <field name="view_mode">graph,pivot,tree</field>
+        <field name="view_mode">graph,pivot,list</field>
     </record>
 
     <menuitem id="bankifai_cashflow_menu" name="BankifAI Cashflow" action="bankifai_cashflow_action" parent="account.account_banks_menu" sequence="55"/>
