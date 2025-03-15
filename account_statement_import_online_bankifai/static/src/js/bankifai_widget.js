@@ -28,7 +28,7 @@ class BankifAIWidget extends Component {
             this.ddmIframe = document.getElementById('ddm-iframe');
 
             this._iframeTokenPost();
-            if (this.props.action.context.update_consent || this.bankifai_connection.status_code == 'TOKEN_EXPIRED') {
+            if (this.props.action.context.update_consent || this.bankifai_connection.status_code == 'EXPIRED_TOKEN') {
                 this._iframeRefreshConnection();
             }
             this._show_iframe();
@@ -54,7 +54,7 @@ class BankifAIWidget extends Component {
         if (this.online_bank_statement_provider.bankifai_connection_id) {
             var bankifai_connections = await this.orm.read('bankifai.connection', [this.online_bank_statement_provider.bankifai_connection_id[0]], ['id', 'connection_identification', 'status_code']);
             this.bankifai_connection = bankifai_connections[0]
-            this.bankifai_connection.status_code = 'TOKEN_EXPIRED'
+            this.bankifai_connection.status_code = 'EXPIRED_TOKEN'
         } else {
             this.bankifai_connection = { id: false, status_code: false }
         }
