@@ -23,7 +23,7 @@
         <field name="name">bankifai.cashflow.view.list</field>
         <field name="model">bankifai.cashflow</field>
         <field name="arch" type="xml">
-            <tree string="BankifAI Cashflow">
+            <list string="BankifAI Cashflow">
                 <field name="date" optional="show"/>
                 <field name="bankifai_account_id" optional="show"/>
                 <field name="cashflow_type" optional="show"/>
