@@ -24,12 +24,13 @@ class BankifAIWidget extends Component {
 
         onMounted(() => {
             this.ddmIframe = document.getElementById('ddm-iframe');
-
-            this._iframeTokenPost();
-            if (this.props.action.context.update_consent || this.bankifai_connection.status_code == 'EXPIRED_TOKEN') {
-                this._iframeRefreshConnection();
-            }
-            this._show_iframe();
+            this.ddmIframe.onload = () => {
+                this._iframeTokenPost();
+                if (this.props.action.context.update_consent || this.bankifai_connection.status_code == 'EXPIRED_TOKEN') {
+                    this._iframeRefreshConnection();
+                }
+                this._show_iframe();
+            };
         });
     }
 
