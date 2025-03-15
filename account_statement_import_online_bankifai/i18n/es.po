@@ -329,7 +329,7 @@ msgstr "Fecha de flujo de caja"
 #. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_cashflow_view_search
 msgid "Cashflow Type"
-msgstr "Fecha de flujo de caja"
+msgstr "Tipo de flujo de caja"
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line__category_id
