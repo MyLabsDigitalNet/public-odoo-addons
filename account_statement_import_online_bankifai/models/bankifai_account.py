@@ -218,7 +218,7 @@ class BankifAIAccount(models.Model):
     def _update_cashflow_forecasts(self):
         cashflows_to_create = []
         cashflows_by_accounts = self._request_cashflow_forecasts()
-        bankifai_cashflows_by_date_and_account = self._get_forecast_by_date_and_account(
+        bankifai_cashflows_by_date_and_account = self._get_cashflow_by_date_and_account(
             cashflow_type='forecast')
         for account in self:
             bankifai_cashflows_by_date = bankifai_cashflows_by_date_and_account.get(
