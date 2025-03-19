@@ -27,12 +27,17 @@ class BankifAIConnection(models.Model):
         ),
     ]
 
-    bankifai_user_id = fields.Many2one(comodel_name='bankifai.user', string='BankifAI User', ondelete='cascade')
-    bankifai_account_ids = fields.One2many(comodel_name='bankifai.account', inverse_name='bankifai_connection_id', string="Aggregated Accounts", readonly=True)
-    connection_identification = fields.Integer(string='Connection ID', readonly=True)
+    bankifai_user_id = fields.Many2one(
+        comodel_name='bankifai.user', string='BankifAI User', ondelete='cascade')
+    bankifai_account_ids = fields.One2many(
+        comodel_name='bankifai.account', inverse_name='bankifai_connection_id', string="Aggregated Accounts", readonly=True)
+    connection_identification = fields.Integer(
+        string='Connection ID', readonly=True)
     team = fields.Integer(string='Team ID', readonly=True)
-    operation_identification = fields.Char(string='Operation ID', readonly=True)
-    last_session_identification = fields.Char(string='Last Session ID', readonly=True)
+    operation_identification = fields.Char(
+        string='Operation ID', readonly=True)
+    last_session_identification = fields.Char(
+        string='Last Session ID', readonly=True)
     last_refresh_date = fields.Char(string='Last Refresh Date', readonly=True)
     token_date = fields.Char(string='Last Update Token Date', readonly=True)
     entity_code = fields.Char(string='Entity Code', readonly=True)
@@ -40,14 +45,18 @@ class BankifAIConnection(models.Model):
     #  ERROR, PENDING, UPDATING, OK
     status_code = fields.Char(string='Status Code', readonly=True)
     last_error_code = fields.Integer(string='Last Error Code', readonly=True)
-    last_error_message = fields.Char(string='Last Error Message', readonly=True)
+    last_error_message = fields.Char(
+        string='Last Error Message', readonly=True)
     token = fields.Char(string='Token', readonly=True)
     name = fields.Char(string='Name', readonly=True)
     company_name = fields.Char(string='Company', readonly=True)
     callback_url = fields.Char(string='Callback URL', readonly=True)
-    online_bank_statement_provider_ids = fields.One2many(comodel_name='online.bank.statement.provider', inverse_name='bankifai_connection_id', string="Online Bank Statement Providers")
-    is_active = fields.Boolean(string="Is active", compute='_compute_is_active', store=True)
-    expected_expiring_synchronization_date = fields.Date(string="Consent Expire Date", help="Date when the consent for this connection expires", compute='_compute_expected_expiring_synchronization_date')
+    online_bank_statement_provider_ids = fields.One2many(
+        comodel_name='online.bank.statement.provider', inverse_name='bankifai_connection_id', string="Online Bank Statement Providers")
+    is_active = fields.Boolean(
+        string="Is active", compute='_compute_is_active', store=True)
+    expected_expiring_synchronization_date = fields.Date(
+        string="Consent Expire Date", help="Date when the consent for this connection expires", compute='_compute_expected_expiring_synchronization_date')
 
     # Computed from bankifai fields
     last_refresh_datetime = fields.Datetime(
@@ -58,17 +67,20 @@ class BankifAIConnection(models.Model):
     @api.depends('last_refresh_date')
     def _compute_last_refresh_datetime(self):
         for connection in self:
-            connection.last_refresh_datetime = fields.Datetime.to_datetime(connection.last_refresh_date)
+            connection.last_refresh_datetime = fields.Datetime.to_datetime(
+                connection.last_refresh_date)
 
     @api.depends('token_date')
     def _compute_token_datetime(self):
         for connection in self:
-            connection.token_datetime = fields.Datetime.to_datetime(connection.token_date)
+            connection.token_datetime = fields.Datetime.to_datetime(
+                connection.token_date)
 
     @api.depends('token_datetime')
     def _compute_expected_expiring_synchronization_date(self):
         for connection in self:
-            connection.expected_expiring_synchronization_date = connection.token_datetime + relativedelta(days=int(self.env['ir.config_parameter'].sudo().get_param('account_statement_import_online_bankifai.days_consent_expected_duration', 90)))
+            connection.expected_expiring_synchronization_date = (connection.token_datetime or fields.Datetime.now()) + relativedelta(days=int(
+                self.env['ir.config_parameter'].sudo().get_param('account_statement_import_online_bankifai.days_consent_expected_duration', 90)))
 
     # CONNECTION REFRESH FIELDS
     interval_type = fields.Selection(
@@ -91,7 +103,8 @@ class BankifAIConnection(models.Model):
     )
     last_successful_run = fields.Datetime(
         string="Last successful refresh", readonly=True)
-    next_run = fields.Datetime(string="Next scheduled refresh", default=fields.Datetime.now, required=True)
+    next_run = fields.Datetime(
+        string="Next scheduled refresh", default=fields.Datetime.now, required=True)
 
     @api.depends('online_bank_statement_provider_ids.active')
     def _compute_is_active(self):
@@ -126,7 +139,7 @@ class BankifAIConnection(models.Model):
             return relativedelta(days=self.interval_number)
         elif self.interval_type == "weeks":
             return relativedelta(weeks=self.interval_number)
-        
+
     def _can_be_refreshed_domain(self):
         return [("is_active", "=", True), ("next_run", "<=", fields.Datetime.now()), ('status_code', 'in', ['OK', 'ERROR'])]
 
@@ -244,7 +257,8 @@ class BankifAIConnection(models.Model):
                     "financialviewer/account"
                 )
                 for account in data:
-                    accounts_by_connection[account.get('conId', 0)].append(account)
+                    accounts_by_connection[account.get(
+                        'conId', 0)].append(account)
         return accounts_by_connection
 
     def _update_accounts(self):
@@ -280,7 +294,8 @@ class BankifAIConnection(models.Model):
         self.bankifai_account_ids._update_cashflow_forecasts()
 
     def _get_matched_bankifai_account_ids(self, account_number):
-        bankifai_account_ids = self.bankifai_account_ids.filtered(lambda bankifai_account: bankifai_account._check_account_and_card_number(account_number))
+        bankifai_account_ids = self.bankifai_account_ids.filtered(
+            lambda bankifai_account: bankifai_account._check_account_and_card_number(account_number))
         return bankifai_account_ids
 
     def action_delete_connection(self):
