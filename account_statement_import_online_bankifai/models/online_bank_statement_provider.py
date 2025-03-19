@@ -141,7 +141,7 @@ class OnlineBankStatementProvider(models.Model):
             online_bank_statement_provider.sudo().message_post(
                 body=_(
                     "Your account number %(iban_number)s has been successfully disconnected.")
-                % {"iban_number": self.journal_id.bank_account_id.display_name}
+                % {"iban_number": online_bank_statement_provider.journal_id.bank_account_id.display_name}
             )
         return True
 
