@@ -167,7 +167,7 @@ class BankifAIAccount(models.Model):
             if should_be_updated(account_data['record'][key], new_data):
                 data[key] = transformation(new_data)
 
-        
+        data.update(custom_data)
         return data
     
     def _request_cashflow_historical(self):
