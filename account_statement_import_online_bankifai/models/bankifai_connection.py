@@ -170,7 +170,7 @@ class BankifAIConnection(models.Model):
             next_run = self.next_run + delta
 
     @api.model
-    def _get_connection_data(self, connection_data, data={}):
+    def _get_connection_data(self, connection_data, custom_data={}):
         def _is_id_updated(old, new):
             return bool(new) and old.id != new
 
@@ -204,12 +204,14 @@ class BankifAIConnection(models.Model):
             'callback_url': lambda conn_data: (_is_string_updated, conn_data['conCallbackUrl'], lambda data: data),
         }
 
+        data = {}
         for key, function in connection_data_map.items():
             should_be_updated, new_data, transformation = function(
                 connection_data)
             if should_be_updated(connection_data['record'][key], new_data):
                 data[key] = transformation(new_data)
 
+        data.update(custom_data)
         return data
 
     def _request_connection(self):
