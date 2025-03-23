@@ -118,7 +118,7 @@ class BankifAIAccount(models.Model):
                 match_number |= self.account_number.upper()[:left_card_numbers_check] == number.upper()[:left_card_numbers_check] and self.account_number.upper()[-rigth_card_numbers_check:] == number.upper()[-rigth_card_numbers_check:]
         return match_number
 
-    def _get_account_data(self, account_data, data={}):
+    def _get_account_data(self, account_data, custom_data={}):
         def _is_id_updated(old, new):
             return bool(new) and old.id != new
 
@@ -159,6 +159,7 @@ class BankifAIAccount(models.Model):
             'card_tae': lambda conn_data: (_is_float_updated, conn_data['cardTae'], lambda data: data),
         }
 
+        data = {}
         for key, function in account_data_map.items():
             should_be_updated, new_data, transformation = function(
                 account_data)
@@ -166,6 +167,7 @@ class BankifAIAccount(models.Model):
             if should_be_updated(account_data['record'][key], new_data):
                 data[key] = transformation(new_data)
 
+        
         return data
     
     def _request_cashflow_historical(self):
