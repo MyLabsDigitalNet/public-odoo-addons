@@ -68,7 +68,7 @@ class BankifAIConnection(models.Model):
     @api.depends('token_datetime')
     def _compute_expected_expiring_synchronization_date(self):
         for connection in self:
-            connection.expected_expiring_synchronization_date = (connection.token_datetime or fields.Datetime.now()) + relativedelta(days=int(self.env['ir.config_parameter'].sudo().get_param('account_statement_import_online.days_consent_expected_duration', 90)))
+            connection.expected_expiring_synchronization_date = (connection.token_datetime or fields.Datetime.now()) + relativedelta(days=int(self.env['ir.config_parameter'].sudo().get_param('account_statement_import_online_bankifai.days_consent_expected_duration', 90)))
 
     # CONNECTION REFRESH FIELDS
     interval_type = fields.Selection(
