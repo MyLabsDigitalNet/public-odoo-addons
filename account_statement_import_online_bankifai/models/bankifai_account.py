@@ -80,6 +80,8 @@ class BankifAIAccount(models.Model):
     def _sort_transactions(self, transactions):
         if len(transactions) < 2:
             return transactions
+        if not all(tr.get('txBalance') and tr.get('txAmount') for tr in transactions):
+            return transactions
         transactions_by_balance = defaultdict(list)
         first_transacction = False
         ordered_transactions = []
