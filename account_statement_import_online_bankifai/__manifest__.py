@@ -10,7 +10,7 @@
         "base",
         "web",
         "account_statement_base",
-        "account_statement_import_online_bankifai_base",
+        "account_statement_import_online",
     ],
     "data": [
         "security/ir.model.access.csv",
@@ -19,6 +19,7 @@
         "views/bankifai_connection_views.xml",
         "views/bankifai_account_views.xml",
         "views/bankifai_cashflow_views.xml",
+        "views/account_journal_views.xml",
         "views/account_journal_dashboard_views.xml",
         "views/account_bank_statement_line_views.xml",
         "wizards/bankifai_connection_existing_wizard_views.xml",

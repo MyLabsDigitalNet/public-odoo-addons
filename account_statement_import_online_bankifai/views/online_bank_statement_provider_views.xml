@@ -3,7 +3,7 @@
     <record model="ir.ui.view" id="bankifai_online_bank_statement_provider_form_inherit">
         <field name="name">bankifai.online.bank.statement.provider.form.inherit</field>
         <field name="model">online.bank.statement.provider</field>
-        <field name="inherit_id" ref="account_statement_import_online_bankifai_base.online_bank_statement_provider_form"/>
+        <field name="inherit_id" ref="account_statement_import_online.online_bank_statement_provider_form"/>
         <field name="arch" type="xml">
             <xpath expr="//group[@name='main']" position="inside">
                 <group name="bankifai" string="BankifAI" invisible="service != 'bankifai'">

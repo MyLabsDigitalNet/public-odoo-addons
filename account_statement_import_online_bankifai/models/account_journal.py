@@ -7,6 +7,7 @@ _logger = logging.getLogger(__name__)
 class AccountJournal(models.Model):
     _inherit = 'account.journal'
 
+    card_number = fields.Char(string="Card Number")
     show_bankifai_button_in_dashboard = fields.Boolean(compute='_compute_show_bankifai_button_in_dashboard')
     show_bankifai_update_consent_in_dashboard = fields.Boolean(compute='_compute_show_bankifai_button_in_dashboard')
     show_bankifai_update_consent_error_in_dashboard = fields.Boolean(compute='_compute_show_bankifai_button_in_dashboard')
