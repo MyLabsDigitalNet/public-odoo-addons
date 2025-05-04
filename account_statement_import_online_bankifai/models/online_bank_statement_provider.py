@@ -25,7 +25,7 @@ class OnlineBankStatementProvider(models.Model):
     bankifai_callback_url = fields.Char(string="BankifAI Redirect URL", compute='_compute_bankifai_callback_url')
     bankifai_connection_status_code = fields.Char(related='bankifai_connection_id.status_code')
 
-    retrieve_days_before = fields.Integer(string="Days before date since", default=1, help="How many days before date since should be retrieved to process transactions with diferent booking and value date.")
+    retrieve_days_before = fields.Integer(string="Days before date since", default=7, help="How many days before date since should be retrieved to process transactions with diferent booking and value date.")
 
     @api.constrains('retrieve_days_before')
     def _check_retrieve_days_before(self):
