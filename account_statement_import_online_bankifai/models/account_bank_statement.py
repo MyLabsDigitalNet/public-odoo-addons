@@ -16,5 +16,5 @@ class AccountBankStatementLine(models.Model):
                 cashflow = bankifai_cashflows_by_date_and_account.get(
                     bankifai_account_id.id, {}).get((statement.date - relativedelta(days=1)).strftime(DF))
                 if cashflow:
-                    statement.balance_start = cashflow.cashflow_balance
+                    statement.balance_start = cashflow.balance
         return True
