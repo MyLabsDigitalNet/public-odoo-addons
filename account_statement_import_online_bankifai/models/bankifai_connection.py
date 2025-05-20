@@ -336,8 +336,8 @@ class BankifAIConnection(models.Model):
             connection._update_accounts()
 
             for online_bank_statement_provider_id in connection.online_bank_statement_provider_ids.filtered(lambda provider: not provider.bankifai_account_id):
-                bankifai_account_id = fields.first(connection._get_matched_bankifai_account_ids(
-                    online_bank_statement_provider_id.account_number))
+                number = online_bank_statement_provider_id.journal_type == 'bank' and online_bank_statement_provider_id.account_number or online_bank_statement_provider_id.journal_type == 'credit' and online_bank_statement_provider_id.card_number or False
+                bankifai_account_id = fields.first(connection._get_matched_bankifai_account_ids(number))
                 if bankifai_account_id:
                     found_accounts = True
                     online_bank_statement_provider_id.write(
@@ -348,7 +348,7 @@ class BankifAIConnection(models.Model):
                     online_bank_statement_provider_id.sudo().message_post(
                         body=_(
                             "Your account number %(iban_number)s is successfully attached.")
-                        % {"iban_number": online_bank_statement_provider_id.journal_id.bank_account_id.display_name}
+                        % {"iban_number": online_bank_statement_provider_id.journal_id._get_number()}
                     )
 
                 elif not dry:
@@ -368,7 +368,7 @@ class BankifAIConnection(models.Model):
                             "account numbers found %(accounts_iban)s, please check"
                         )
                         % {
-                            "iban_number": online_bank_statement_provider_id.journal_id.bank_account_id.display_name,
+                            "iban_number": online_bank_statement_provider_id.journal_id._get_number(),
                             "accounts_iban": " / ".join(connection.bankifai_account_ids.mapped('account_number')),
                         }
                     )

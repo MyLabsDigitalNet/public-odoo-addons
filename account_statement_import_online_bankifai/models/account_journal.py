@@ -13,6 +13,14 @@ class AccountJournal(models.Model):
     show_bankifai_update_consent_error_in_dashboard = fields.Boolean(compute='_compute_show_bankifai_button_in_dashboard')
     expected_expiring_synchronization_date = fields.Date(related='online_bank_statement_provider_id.bankifai_connection_id.expected_expiring_synchronization_date')
 
+    def _get_number(self):
+        self.ensure_one()
+        if self.type == 'bank':
+            return self.bank_account_id.display_name
+        elif self.type == 'credit':
+            return self.card_number
+        return False
+
     @api.depends()
     def _compute_show_bankifai_button_in_dashboard(self):
         for journal in self:
@@ -23,7 +31,7 @@ class AccountJournal(models.Model):
                 if str2bool(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.show_easy_connection", 'True')) and (not journal.online_bank_statement_provider or journal.online_bank_statement_provider == 'dummy' or journal.bank_statements_source == 'undefined'):
                     show_button = True
                 if journal.online_bank_statement_provider == 'bankifai' and journal.bank_statements_source == 'online':
-                    if journal.bank_account_id and journal.online_bank_statement_provider_id.bankifai_connection_id and journal.online_bank_statement_provider_id.bankifai_user_id:
+                    if journal._get_number() and journal.online_bank_statement_provider_id.bankifai_connection_id and journal.online_bank_statement_provider_id.bankifai_user_id:
                         show_update_consent = True
                         if journal.online_bank_statement_provider_id.bankifai_connection_id.status_code == 'EXPIRED_TOKEN':
                             show_update_consent_error = True
