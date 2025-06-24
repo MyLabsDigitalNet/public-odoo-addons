@@ -184,7 +184,9 @@ class OnlineBankStatementProvider(models.Model):
         sequence = 0
         currencies_cache = {}
         statement_data = {}
+        journal_currency_id = self.journal_id.currency_id or self.journal_id.company_id.currency_id
         for tr in transactions:
+            values = {}
             string_date = tr.get("txValueDate") or tr.get("txOperationDate")
             # CHECK ME: if there's not date string, is transaction still valid?
             if not string_date:
@@ -193,25 +195,36 @@ class OnlineBankStatementProvider(models.Model):
             sequence += 1
             amount = float(tr.get("txAmount", 0.0))
             balance = float(tr.get("txBalance", 0.0) or 0.0)
-            amount_currency = amount
-            balance_currency = balance
-            if (
-                self.bankifai_account_id.currency_id
-                and self.journal_id.currency_id
-                and self.bankifai_account_id.currency_id.id != self.journal_id.currency_id.id
-            ):
-                amount_currency = self.bankifai_account_id.currency_id._convert(
-                    amount,
-                    self.journal_id.currency_id,
-                    self.journal_id.company_id,
-                    current_date,
-                )
-                balance_currency = self.bankifai_account_id.currency_id._convert(
-                    balance,
-                    self.journal_id.currency_id,
-                    self.journal_id.company_id,
-                    current_date,
-                )
+            amount_currency = float(tr.get("txAmountCurrency", 0.0) or 0.0)
+            
+            foreign_currency_code = tr.get("txCurrency", journal_currency_id.name)
+            foreign_currency_id = currencies_cache.get(foreign_currency_code)
+            if not foreign_currency_id:
+                foreign_currency_id = currency_model.search([("name", "=", foreign_currency_code)])
+                currencies_cache[foreign_currency_code] = foreign_currency_id
+
+            if foreign_currency_id and foreign_currency_id.id != journal_currency_id.id:
+                values.update({
+                    "foreign_currency_id": foreign_currency_id.id,
+                    "amount_currency": amount_currency,
+                })
+            # if (
+            #     self.bankifai_account_id.currency_id
+            #     and self.journal_id.currency_id
+            #     and self.bankifai_account_id.currency_id.id != self.journal_id.currency_id.id
+            # ):
+            #     amount_currency = self.bankifai_account_id.currency_id._convert(
+            #         amount,
+            #         self.journal_id.currency_id,
+            #         self.journal_id.company_id,
+            #         current_date,
+            #     )
+            #     balance_currency = self.bankifai_account_id.currency_id._convert(
+            #         balance,
+            #         self.journal_id.currency_id,
+            #         self.journal_id.company_id,
+            #         current_date,
+            #     )
             partner_name = tr.get("txTransferSenderReceiver", False)
             account_number = tr.get("txTransferAccountNumber", "")
             if account_number == own_acc_number:
@@ -226,24 +239,24 @@ class OnlineBankStatementProvider(models.Model):
             else:
                 payment_ref = partner_name
 
-            res.append(
-                {
-                    "sequence": sequence,
-                    "date": current_date,
-                    "ref": partner_name or "/",
-                    "payment_ref": payment_ref,
-                    "unique_import_id": self._get_bankifai_unique_import_id(tr),
-                    "amount": amount_currency,
-                    "account_number": account_number,
-                    "partner_name": partner_name,
-                    "transaction_type": tr.get("bankTransactionCode", ""),
-                    "narration": self.bankifai_get_note(tr),
-                    "category_id": self._get_bankifai_category_id(tr),
-                }
-            )
+            
+            values.update({
+                "sequence": sequence,
+                "date": current_date,
+                "ref": partner_name or "/",
+                "payment_ref": payment_ref,
+                "unique_import_id": self._get_bankifai_unique_import_id(tr),
+                "amount": amount,
+                "account_number": account_number,
+                "partner_name": partner_name,
+                "transaction_type": tr.get("bankTransactionCode", ""),
+                "narration": self.bankifai_get_note(tr),
+                "category_id": self._get_bankifai_category_id(tr),
+            })
+            res.append(values)
 
             if str2bool(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.sort_transactions", 'True')) and self.bankifai_account_id.account_type == 'ACCOUNT' and not 'balance_start' in statement_data:
-                statement_data['balance_start'] = balance_currency - amount_currency
+                statement_data['balance_start'] = balance - amount
         return res, statement_data
 
     def _create_or_update_statement(
