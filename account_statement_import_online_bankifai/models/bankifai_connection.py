@@ -9,6 +9,7 @@ from werkzeug.urls import url_join
 from dateutil.relativedelta import relativedelta
 
 from odoo import fields, models, api, _
+from odoo.exceptions import ValidationError
 from odoo.tools import float_compare, float_is_zero
 
 _logger = logging.getLogger(__name__)
@@ -339,6 +340,12 @@ class BankifAIConnection(models.Model):
                 number = online_bank_statement_provider_id.journal_type == 'bank' and online_bank_statement_provider_id.account_number or online_bank_statement_provider_id.journal_type == 'credit' and online_bank_statement_provider_id.card_number or False
                 bankifai_account_id = fields.first(connection._get_matched_bankifai_account_ids(number))
                 if bankifai_account_id:
+                    currency_id = online_bank_statement_provider_id.journal_id.currency_id or online_bank_statement_provider_id.journal_id.company_id.currency_id
+                    if bankifai_account_id.currency_id and bankifai_account_id.currency_id.id != currency_id.id:
+                        raise ValidationError(
+                            _("The currency of the bankifai account (%s) does not match the currency of the journal (%s).") %
+                            (bankifai_account_id.currency_id.name, online_bank_statement_provider_id.journal_id.currency_id.name))
+
                     found_accounts = True
                     online_bank_statement_provider_id.write(
                         {
