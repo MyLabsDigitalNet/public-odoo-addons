@@ -61,6 +61,8 @@
                             <field name="entity_code"/>
                             <field name="last_refresh_datetime"/>
                             <field name="status_code"/>
+                            <field name="last_error_code"/>
+                            <field name="last_error_message"/>
                         </group>
                         <group name="data_rigth">
                             <field name="connection_identification"/>
