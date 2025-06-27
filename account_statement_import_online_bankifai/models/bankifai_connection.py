@@ -344,7 +344,7 @@ class BankifAIConnection(models.Model):
                     if bankifai_account_id.currency_id and bankifai_account_id.currency_id.id != currency_id.id:
                         raise ValidationError(
                             _("The currency of the bankifai account (%s) does not match the currency of the journal (%s).") %
-                            (bankifai_account_id.currency_id.name, online_bank_statement_provider_id.journal_id.currency_id.name))
+                            (bankifai_account_id.currency_id.name, online_bank_statement_provider_id.journal_id.currency_id.name or online_bank_statement_provider_id.journal_id.company_id.currency_id.name))
 
                     found_accounts = True
                     online_bank_statement_provider_id.write(

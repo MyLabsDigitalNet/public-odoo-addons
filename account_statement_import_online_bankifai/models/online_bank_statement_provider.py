@@ -2,6 +2,7 @@ import json
 import base64
 from datetime import datetime
 from uuid import uuid4
+from pytz import timezone, utc
 
 import requests
 from dateutil.relativedelta import relativedelta
@@ -36,6 +37,8 @@ class OnlineBankStatementProvider(models.Model):
     bankifai_connection_status_code = fields.Char(related='bankifai_connection_id.status_code')
 
     retrieve_days_before = fields.Integer(string="Days before date since", default=7, help="How many days before date since should be retrieved to process transactions with diferent booking and value date.")
+
+    add_additional_information_in_ref = fields.Boolean(string="Add additional information in reference", help="If checked, the additional information will be added to the payment reference of the transaction.")
 
     @api.constrains('retrieve_days_before')
     def _check_retrieve_days_before(self):
@@ -205,7 +208,7 @@ class OnlineBankStatementProvider(models.Model):
             sequence += 1
             amount = float(tr.get("txAmount", 0.0))
             balance = float(tr.get("txBalance", 0.0) or 0.0)
-            amount_currency = float(tr.get("txAmountCurrency", 0.0) or 0.0)
+            amount_currency = float(tr.get("txOriginalAmount", 0.0) or 0.0)
             
             foreign_currency_code = tr.get("txCurrency", journal_currency_id.name)
             foreign_currency_id = currencies_cache.get(foreign_currency_code)
@@ -235,26 +238,16 @@ class OnlineBankStatementProvider(models.Model):
             #         self.journal_id.company_id,
             #         current_date,
             #     )
-            partner_name = tr.get("txTransferSenderReceiver", False)
+            partner_name = tr.get("txTransferSenderReceiver", "")
             account_number = tr.get("txTransferAccountNumber", "")
             if account_number == own_acc_number:
                 account_number = False  # Discard own bank account number
-            if "txDescription" in tr:
-                payment_ref = tr["txDescription"]
-            elif "remittanceInformationUnstructured" in tr:
-                payment_ref = tr["remittanceInformationUnstructured"]
-            elif "remittanceInformationUnstructuredArray" in tr:
-                payment_ref = " ".join(
-                    tr["remittanceInformationUnstructuredArray"])
-            else:
-                payment_ref = partner_name
-
             
             values.update({
                 "sequence": sequence,
                 "date": current_date,
-                "ref": partner_name or "/",
-                "payment_ref": payment_ref,
+                "ref": self.bankifai_get_payment_ref(tr),
+                "payment_ref": self.bankifai_get_payment_ref(tr),
                 "unique_import_id": self._get_bankifai_unique_import_id(tr),
                 "amount": amount,
                 "account_number": account_number,
@@ -307,34 +300,80 @@ class OnlineBankStatementProvider(models.Model):
             )
 
         return category_id.id
+    
+    def bankifai_get_payment_ref(self, tr):
+        payment_ref_elements = [
+            "txDescription",
+            "txTransferAccountNumber",
+        ]
+        payment_refs = [str(tr[element]) for element in payment_ref_elements if tr.get(element)]
+
+        if self.add_additional_information_in_ref:
+            payment_refs += [str(additional_info.get("value", "")) for additional_info in tr.get("additionalInfo", []) if additional_info.get("value")]
+
+        return " | ".join(payment_refs) if payment_refs else "/"
+
 
     def bankifai_get_note(self, tr):
         """Override to get different notes."""
         note_elements = [
-            "additionalInformation",
-            "balanceAfterTransaction",
-            "bankTransactionCode",
-            "bookingDate",
-            "checkId",
-            "creditorAccount",
-            "creditorAgent",
-            "creditorId",
-            "creditorName",
-            "currencyExchange",
-            "debtorAccount",
-            "debtorAgent",
-            "debtorName",
-            "entryReference",
-            "mandateId",
-            "proprietaryBank",
-            "remittanceInformation Unstructured",
-            "transactionAmount",
-            "transactionId",
-            "ultimateCreditor",
-            "ultimateDebtor",
-            "valueDate",
+            ("txOperationDate", "OperationDate: ", lambda element: element),
+            ("txValueDate", "ValueDate: ", lambda element: element),
+            ("txDescription", "Description: ", lambda element: element),
+            ("txBalance", "Balance: ", lambda element: element),
+            ("txAmount", "Amount: ", lambda element: element),
+            ("txExchangeRate", "ExchangeRate: ", lambda element: element),
+            ("txCurrency", "Currency: ", lambda element: element),
+            ("txOriginalAmount", "OriginalAmount: ", lambda element: element),
+            ("txSettled", "Settled: ", lambda element: element),
+            ("txTransferSenderReceiver", "TransferSenderReceiver: ", lambda element: element),
+            ("txTransferAccountNumber", "TransferAccountNumber: ", lambda element: element),
+            ("category", "Category: ", lambda element: element.get('description', '')),
+            ("additionalInfo", "AdditionalInfo: ", lambda element: " | ".join([f"{info.get('key', '')}: {info.get('value', '')}" for info in element]) if isinstance(element, list) else ""),
         ]
-        notes = [str(tr[element]) for element in note_elements if tr.get(element)]
+        notes = [str(label) + str(transformation(tr[key])) for key, label, transformation in note_elements if transformation(tr.get(key))]
         return "\n".join(notes)
 
-
+    def _get_statement_filtered_lines(
+        self,
+        unfiltered_lines,
+        statement_values,
+        statement_date_since,
+        statement_date_until,
+    ):
+        """Get lines from line data, but only for the right date."""
+        if str2bool(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.force_statement_line_update", 'False')):
+            AccountBankStatementLine = self.env["account.bank.statement.line"]
+            provider_tz = timezone(self.tz) if self.tz else utc
+            journal = self.journal_id
+            filtered_lines = []
+            for line_values in unfiltered_lines:
+                date = line_values["date"]
+                if not isinstance(date, datetime):
+                    date = fields.Datetime.from_string(date)
+                if date.tzinfo is None:
+                    date = date.replace(tzinfo=utc)
+                date = date.astimezone(utc).replace(tzinfo=None)
+                if date < statement_date_since:
+                    continue
+                elif date >= statement_date_until:
+                    continue
+                date = date.replace(tzinfo=utc)
+                date = date.astimezone(provider_tz).replace(tzinfo=None)
+                line_values["date"] = date
+                journal._statement_line_import_update_unique_import_id(
+                    line_values, self.account_number
+                )
+                unique_import_id = line_values.get("unique_import_id")
+                if unique_import_id:
+                    statement_line_id = AccountBankStatementLine.sudo().search(
+                        [("unique_import_id", "=", unique_import_id), ('is_reconciled', '=', False)], limit=1
+                    )
+                    if statement_line_id:
+                        statement_line_id.write(line_values)
+        return super()._get_statement_filtered_lines(
+            unfiltered_lines,
+            statement_values,
+            statement_date_since,
+            statement_date_until,
+        )
