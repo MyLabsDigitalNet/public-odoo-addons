@@ -113,9 +113,12 @@ class BankifAIAccount(models.Model):
             if self.account_type == 'ACCOUNT':
                 match_number |= self.account_number.upper() == number.upper()
             elif self.account_type == 'CARD':
-                left_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.left_card_numbers_check", 4))
-                rigth_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param("account_statement_import_online_bankifai.rigth_card_numbers_check", 4))
-                match_number |= self.account_number.upper()[:left_card_numbers_check] == number.upper()[:left_card_numbers_check] and self.account_number.upper()[-rigth_card_numbers_check:] == number.upper()[-rigth_card_numbers_check:]
+                left_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param(
+                    "account_statement_import_online_bankifai.left_card_numbers_check", 0))
+                rigth_card_numbers_check = int(self.env["ir.config_parameter"].sudo().get_param(
+                    "account_statement_import_online_bankifai.rigth_card_numbers_check", 4))
+                match_number |= self.account_number.upper()[:left_card_numbers_check] == number.upper(
+                )[:left_card_numbers_check] and self.account_number.upper()[-rigth_card_numbers_check:] == number.upper()[-rigth_card_numbers_check:]
         return match_number
 
     def _get_account_data(self, account_data, custom_data={}):
