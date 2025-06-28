@@ -361,6 +361,7 @@ class OnlineBankStatementProvider(models.Model):
                 date = date.replace(tzinfo=utc)
                 date = date.astimezone(provider_tz).replace(tzinfo=None)
                 line_values["date"] = date
+                previous_unique_import_id = line_values.get("unique_import_id")
                 journal._statement_line_import_update_unique_import_id(
                     line_values, self.account_number
                 )
@@ -371,6 +372,7 @@ class OnlineBankStatementProvider(models.Model):
                     )
                     if statement_line_id:
                         statement_line_id.write(line_values)
+                line_values["unique_import_id"] = previous_unique_import_id
         return super()._get_statement_filtered_lines(
             unfiltered_lines,
             statement_values,
