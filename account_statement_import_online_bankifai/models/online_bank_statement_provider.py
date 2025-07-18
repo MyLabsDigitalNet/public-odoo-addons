@@ -30,6 +30,13 @@ class OnlineBankStatementProvider(models.Model):
 
     add_additional_information_in_ref = fields.Boolean(string="Add additional information in reference", help="If checked, the additional information will be added to the payment reference of the transaction.")
 
+    use_date = fields.Selection(
+        selection=[
+            ('operation_date', 'Operation Date'),
+            ('value_date', 'Value Date'),
+        ],
+    )
+
     @api.constrains('retrieve_days_before')
     def _check_retrieve_days_before(self):
         for record in self:
@@ -190,7 +197,10 @@ class OnlineBankStatementProvider(models.Model):
         journal_currency_id = self.journal_id.currency_id or self.journal_id.company_id.currency_id
         for tr in transactions:
             values = {}
-            string_date = tr.get("txValueDate") or tr.get("txOperationDate")
+            if self.use_date == 'operation_date':
+                string_date = tr.get("txOperationDate") or tr.get("txValueDate")
+            elif self.use_date == 'value_date':
+                string_date = tr.get("txValueDate") or tr.get("txOperationDate")
             # CHECK ME: if there's not date string, is transaction still valid?
             if not string_date:
                 continue
