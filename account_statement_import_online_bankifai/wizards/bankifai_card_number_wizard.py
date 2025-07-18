@@ -6,7 +6,7 @@ from odoo.exceptions import ValidationError
 
 class BankifAIUserCreateWizard(models.TransientModel):
     _name = "bankifai.card.number.wizard"
-    _description = "Wizard for intorudcing the card number for BankifAI"
+    _description = "Wizard for introducing the card number for BankifAI"
     _rec_name = "journal_id"
 
     journal_id = fields.Many2one(comodel_name='account.journal', string="Journal")
