@@ -1,6 +1,6 @@
 {
     "name": "Online Bank Statements: BankifAI",
-    "version": "16.0.3.0.0",
+    "version": "16.0.4.0.0",
     "category": "Account",
     "author": "Adrián Bernal Bermejo, Ekodo (MyLabs Digital Net SL)",
     "website": "https://qsimov.ekodo.es",

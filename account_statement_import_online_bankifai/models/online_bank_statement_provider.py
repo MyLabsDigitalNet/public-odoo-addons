@@ -35,6 +35,9 @@ class OnlineBankStatementProvider(models.Model):
             ('operation_date', 'Operation Date'),
             ('value_date', 'Value Date'),
         ],
+        required=True,
+        default='operation_date',
+        string="Use Date",
     )
 
     @api.constrains('retrieve_days_before')
