@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 17.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-03-14 06:23+0000\n"
-"PO-Revision-Date: 2025-03-14 06:23+0000\n"
+"POT-Creation-Date: 2025-07-18 18:09+0000\n"
+"PO-Revision-Date: 2025-07-18 18:09+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "%(number)s %(type)s"
 msgstr ""
@@ -39,9 +40,9 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.account_journal_dashboard_kanban_view_inherit
 msgid ""
-"<span class=\"alert-danger\" invisible=\"not "
-"show_bankifai_update_consent_error_in_dashboard\">Synchronization is stopped. "
-"Please, renew the bank consent.</span>"
+"<span class=\"alert-danger\" role=\"alert\" invisible=\"not "
+"show_bankifai_update_consent_error_in_dashboard\">Synchronization is "
+"stopped. Please, renew the bank consent.</span>"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -97,6 +98,11 @@ msgid "Action Needed"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__add_additional_information_in_ref
+msgid "Add additional information in reference"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__bankifai_account_ids
 msgid "Aggregated Accounts"
 msgstr ""
@@ -130,6 +136,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.xml:0
 #, python-format
 msgid "Bank Connection"
 msgstr ""
@@ -152,6 +159,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid "Bank Synchronization: Update your consent"
 msgstr ""
@@ -339,6 +347,11 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Close"
 msgstr ""
@@ -369,6 +382,24 @@ msgid "Connection ID"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Connection error"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#. odoo-javascript
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#, python-format
+msgid "Connection limit reached"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model_terms:ir.ui.view,arch_db:account_statement_import_online_bankifai.bankifai_user_view_form
 msgid "Connections"
 msgstr ""
@@ -387,6 +418,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid "Create a Bank Account"
 msgstr ""
@@ -484,15 +516,9 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Error"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#. odoo-javascript
-#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#, python-format
-msgid "Connection error"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -671,8 +697,16 @@ msgid "If checked, some messages have a delivery error."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,help:account_statement_import_online_bankifai.field_online_bank_statement_provider__add_additional_information_in_ref
+msgid ""
+"If checked, the additional information will be added to the payment "
+"reference of the transaction."
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Inactive"
 msgstr ""
@@ -706,17 +740,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_error_message
 msgid "Last Error Message"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_account_bank_statement_line_category____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_account____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_cashflow____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection_existing_wizard____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user____last_update
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user_create_wizard____last_update
-msgid "Last Modified on"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -769,20 +792,6 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__last_successful_run
 msgid "Last successful refresh"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#. odoo-javascript
-#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
-#, python-format
-msgid "Connection limit reached"
-msgstr ""
-
-#. module: account_statement_import_online_bankifai
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__message_main_attachment_id
-#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__message_main_attachment_id
-msgid "Main Attachment"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
@@ -864,6 +873,11 @@ msgid "Open"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__online_bank_statement_provider__use_date__operation_date
+msgid "Operation Date"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__operation_identification
 msgid "Operation ID"
 msgstr ""
@@ -876,6 +890,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid "Please fill all the fields."
 msgstr ""
@@ -883,13 +898,13 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid "Please select an existing user."
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #: model:ir.actions.server,name:account_statement_import_online_bankifai.ir_cron_account_refresh_bankifai_connections_ir_actions_server
-#: model:ir.cron,cron_name:account_statement_import_online_bankifai.ir_cron_account_refresh_bankifai_connections
 msgid "Refresh BankifAI Connections"
 msgstr ""
 
@@ -901,6 +916,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Refreshing bankifai connections: %(connection_names)s"
 msgstr ""
@@ -924,6 +940,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Scheduled refresh of online bank connections complete."
 msgstr ""
@@ -931,6 +948,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Scheduled refresh of online bank connections..."
 msgstr ""
@@ -987,6 +1005,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "Success Connection"
 msgstr ""
@@ -999,13 +1018,25 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-javascript
 #: code:addons/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/static/src/js/bankifai_widget.js:0
 #, python-format
 msgid "The bank has been connected"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
 #. odoo-python
+#: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#, python-format
+msgid ""
+"The currency of the bankifai account (%s) does not match the currency of the"
+" journal (%s)."
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#. odoo-python
 #: code:addons/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/wizards/bankifai_user_create_wizard.py:0
 #, python-format
 msgid ""
 "The user %s has the same clientId. Please link this user or change the "
@@ -1027,6 +1058,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/account_journal.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/account_journal.py:0
 #, python-format
 msgid ""
 "This bank connection is expected to expire on %s. Press the Update "
@@ -1091,6 +1123,16 @@ msgid "Update consent"
 msgstr ""
 
 #. module: account_statement_import_online_bankifai
+#: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_online_bank_statement_provider__use_date
+msgid "Use Date"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
+#: model:ir.model.fields.selection,name:account_statement_import_online_bankifai.selection__online_bank_statement_provider__use_date__value_date
+msgid "Value Date"
+msgstr ""
+
+#. module: account_statement_import_online_bankifai
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_connection__website_message_ids
 #: model:ir.model.fields,field_description:account_statement_import_online_bankifai.field_bankifai_user__website_message_ids
 msgid "Website Messages"
@@ -1120,6 +1162,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/online_bank_statement_provider.py:0
 #, python-format
 msgid ""
 "Your account number %(iban_number)s has been successfully disconnected."
@@ -1128,6 +1171,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid "Your account number %(iban_number)s is successfully attached."
 msgstr ""
@@ -1135,6 +1179,7 @@ msgstr ""
 #. module: account_statement_import_online_bankifai
 #. odoo-python
 #: code:addons/account_statement_import_online_bankifai/models/bankifai_connection.py:0
+#: code:addons/public-odoo-addons17/account_statement_import_online_bankifai/models/bankifai_connection.py:0
 #, python-format
 msgid ""
 "Your account number %(iban_number)s it's not in the IBAN account numbers "
