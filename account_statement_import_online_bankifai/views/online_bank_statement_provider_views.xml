@@ -18,6 +18,7 @@
             </xpath>
             <xpath expr="//field[@name='next_run']" position="after">
                 <field name="retrieve_days_before"/>
+                <field name="use_date"/>
             </xpath>
             <xpath expr="//group[@name='configuration']" position="inside">
                 <field name="add_additional_information_in_ref"/>
