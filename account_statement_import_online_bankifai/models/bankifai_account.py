@@ -36,6 +36,8 @@ class BankifAIAccount(models.Model):
     bankifai_cashflow_ids = fields.One2many(comodel_name='bankifai.cashflow', inverse_name='bankifai_account_id', string='BankifAI Cashflows')
 
     currency_id = fields.Many2one(comodel_name='res.currency', compute='_compute_res_currency', store=True)
+    
+    online_bank_statement_provider_ids = fields.One2many(comodel_name='online.bank.statement.provider', inverse_name='bankifai_account_id', string="Online Bank Statement Providers")
 
     @api.depends('account_name', 'account_number')
     def _compute_name(self):
@@ -58,12 +60,18 @@ class BankifAIAccount(models.Model):
         now = fields.Datetime.now()
         if now > date_since and now < date_until:
             date_until = now
+        dateFromKey = "operationDateFrom"
+        dateToKey = "operationDateTo"
+        if len(self.online_bank_statement_provider_ids) == 1 and self.online_bank_statement_provider_ids.use_date == 'value_date':
+            dateFromKey = "valueDateFrom"
+            dateToKey = "valueDateTo"
+            
         _response, data = self.bankifai_connection_id.bankifai_user_id._get_request(
             "financialviewer/transaction",
             params={
                 "accountIds": ",".join(map(str, self.mapped('account_indentification'))),
-                "valueDateFrom": date_since.strftime(DF),
-                "valueDateTo": date_until.strftime(DF),
+                dateFromKey: date_since.strftime(DF),
+                dateToKey: date_until.strftime(DF),
                 "sortBy": "txValueDate",
                 "order": "ASC",
             },
